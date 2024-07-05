@@ -1,0 +1,16 @@
+.sidebarContainer {
+  height: 100%;
+  width: 90px;
+  padding-left: 5px;
+  padding-right: 5px;
+  display: flex;
+  background: transparent;
+}
+
+.myButton {
+  width: 80px;
+  height: 60px;
+  padding: 5px;
+  background: #282c34;
+  border: 0;
+}
