@@ -2,7 +2,7 @@ import style from './sidebar.module.css';
 
 export default function Sidebar() {
   return (
-    <div className="vstack gap-3 justify-content-center">
+    <div className={`vstack gap-3 justify-content-center ${style.sidebarContainer}`}>
       <button type="button" className={`btn btn-secondary ${style.myButton}`}>
         Home
       </button>
