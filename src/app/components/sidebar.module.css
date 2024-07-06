@@ -1,12 +1,10 @@
 .sidebarContainer {
-  height: 100%;
-  width: 80px;
-  padding: 10px;
-  display: flex;
+  position: fixed;
+  top: 50%;
+  right: 0; /* Aligns the div to the right side */
+  transform: translateY(-50%); /* Centers the div vertically */
   background: transparent;
-  position: absolute;
-  top: 0px;
-  right: 0px;
+  padding: 10px;
 }
 
 .myButton {

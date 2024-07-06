@@ -1,31 +1,36 @@
-.header {
-  padding-left: 20px;
-  padding-right: 20px;
-  padding-top: 0;
-  padding-bottom: 0;
-}
-
-.headerText {
-  font-family: 'Copperplate';
-  font-size: 60px;
-  text-align: center;
-}
-
 .skillContainer {
   padding: 5px;
 }
 
-.skillTitle {
+.expTitle {
   font-family: 'Copperplate';
   color: blue;
   font-size: 24px;
   margin: 0;
+  text-align: left;
 }
 
-.expTitle {
+.expSubtitle {
   font-family: 'Copperplate';
-  font-size: 18px;
-  margin-bottom: 4px;
+  color: white;
+  font-size: 20px;
+  margin: 0;
+  text-align: left;
+}
+
+.expContainer {
+  display: flex;
+}
+
+.expColLarge {
+  padding: 5px;
+  width: 60%
+}
+
+.expColSmall {
+  flex: 1;
+  padding: 5px;
+  width: 40%;
 }
 
 .ulist {
@@ -35,19 +40,26 @@
 }
 
 .litem {
-  margin: 8px 0;
+  margin: 0;
+  margin-bottom: 5px;
 }
 
 .expEduWrapper {
   display: flex;
 }
 
-.expEduContainer {
+.eContainer {
   flex: 1;
   padding: 5px;
 }
 
-.expEduHeader {
+.eduContainer {
+  flex: 1;
+  padding: 5px;
+  padding-left: 10px;
+}
+
+.sectionTitle {
   font-family: 'Copperplate';
   font-size: 24px;
   margin-bottom: 0;
