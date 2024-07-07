@@ -1,9 +1,9 @@
 import Image from 'next/image';
+import githubIcon from '../public/github.png';
 import nextjsIcon from '../public/nextjs.png';
 import nodejsIcon from '../public/nodejs.png';
 import reactIcon from '../public/react.png';
 import tsIcon from '../public/typescript.png';
-import githubIcon from '../public/github.png';
 import style from './skillCard.module.css';
 
 type Tool = 'Typescript' | 'NodeJS' | 'React' | 'NextJS';
@@ -12,9 +12,10 @@ interface Props {
   name: string;
   description: string;
   tools: Tool[];
+  link: string;
 }
 
-export default function ProjectCard({ name, description, tools }: Props) {
+export default function ProjectCard({ name, description, tools, link }: Props) {
   const toolIcons = new Set<any>();
   for (const tool of tools) {
     switch (tool) {
@@ -34,14 +35,16 @@ export default function ProjectCard({ name, description, tools }: Props) {
   }
 
   return (
-    <div>
-      <p className={style.skillName}>{name}</p>
-      <p style={{ marginBottom: '8px' }}>{description}</p>
-      <div style={{ display: 'flex', width: '100%' }}>
-        <span style={{ flex: 1 }}>{toolIcons}</span>
-        <span>View on GitHub&nbsp;</span>
-        <Image key='github' src={githubIcon} alt='GitHub' width={20} height={20}/>
+    <a href={link} role='button' className="card" style={{width: '100%', background: '#dadada', textDecoration: 'none' }}>
+      <div className="card-body">
+        <p className={style.skillName}>{name}</p>
+        <p style={{ marginBottom: '8px', overflowY: 'auto', maxHeight: '70px' }}>{description}</p>
+        <div style={{ display: 'flex', width: '100%' }}>
+          <span style={{ flex: 1 }}>{toolIcons}</span>
+          <span>View on GitHub&nbsp;</span>
+          <Image key="github" src={githubIcon} alt="GitHub" width={20} height={20} />
+        </div>
       </div>
-    </div>
+    </a>
   );
 }

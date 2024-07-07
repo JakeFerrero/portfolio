@@ -30,6 +30,8 @@
 .expColSmall {
   flex: 1;
   padding: 5px;
+  padding-left: 5%;
+  padding-right: 5%;
   width: 40%;
 }
 
@@ -42,6 +44,11 @@
 .litem {
   margin: 0;
   margin-bottom: 5px;
+}
+
+.projectlitem {
+  margin: 0;
+  margin-bottom: 20px;
 }
 
 .expEduWrapper {
@@ -62,6 +69,6 @@
 .sectionTitle {
   font-family: 'Copperplate';
   font-size: 24px;
-  margin-bottom: 0;
+  margin-bottom: 4px;
   text-align: center;
 }

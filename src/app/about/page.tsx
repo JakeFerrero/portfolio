@@ -51,8 +51,11 @@ export default function About() {
         <div className={style.expColSmall}>
           <p className={style.sectionTitle}>Projects</p>
           <ul className={style.ulist}>
-            <li className={style.litem}>
-              <ProjectCard name='Website' tools={['Typescript', 'React', 'NextJS']} description='Personal website and portfolio built using React, NextJS, and Typescript.'/>
+            <li className={style.projectlitem} style={{ marginTop: '16px', marginBottom: '16px' }}>
+              <ProjectCard name='Banking API' link='https://github.com/JakeFerrero/banking-api' tools={['Typescript', 'NodeJS']} description='A basic Banking API - written in Typescript and utilizing NestJS and sqlite - that simulates day-to-day operations that a bank employee may use.'/>
+            </li>
+            <li className={style.projectlitem} style={{ marginTop: '16px', marginBottom: '16px' }}>
+              <ProjectCard name='Website' link='https://github.com/JakeFerrero/website' tools={['Typescript', 'React', 'NextJS']} description='Personal website and portfolio built using React, NextJS, and Typescript.'/>
             </li>
           </ul>
         </div>
