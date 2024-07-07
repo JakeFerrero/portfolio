@@ -1,25 +1,58 @@
 .contactContainer {
-  width: 100%;
   height: 100%;
-  padding-left: 50px;
-  padding-right: 50px;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  display: flex;
+  width: 100%;
   justify-content: center;
   flex-direction: column;
+  display: flex;
 }
 
-.title {
-  padding-left: 80px;
-  padding-right: 80px;
-  padding-top: 0;
-  padding-bottom: 0;
-  color: white;
+.expContainer {
+  display: flex;
+  height: 100%;
+  width: 100%;
+}
+
+.expColLarge {
+  padding: 5px;
+  padding-left: 20px;
+  width: 60%;
+  justify-content: center;
+  flex-direction: column;
+  display: flex;
+}
+
+.expColSmall {
   flex: 1;
+  padding: 5px;
+  width: 40%;
+  justify-content: center;
+  flex-direction: column;
+  display: flex;
 }
 
-.text {
+.expSubtitle {
+  font-family: 'Copperplate';
   color: white;
-  flex: 3;
+  font-size: 24px;
+  margin: 0;
+  text-align: left;
+}
+
+.textField {
+  color: grey;
+  background-color: #252525;
+  border-radius: 10px;
+  border: 0;
+  padding: 10px;
+  width: 90%;
+}
+
+.roundButton {
+  width: 60px;
+  height: 60px;
+  padding: 5px;
+  border: 0;
+  background: #252525;
+  display:block;
+  border-radius: 50%;
 }
