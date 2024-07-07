@@ -4,7 +4,6 @@ import nextjsIcon from '../public/nextjs.png';
 import nodejsIcon from '../public/nodejs.png';
 import reactIcon from '../public/react.png';
 import tsIcon from '../public/typescript.png';
-import style from './skillCard.module.css';
 
 type Tool = 'Typescript' | 'NodeJS' | 'React' | 'NextJS';
 
@@ -37,7 +36,7 @@ export default function ProjectCard({ name, description, tools, link }: Props) {
   return (
     <a href={link} role='button' className="card" style={{width: '100%', background: '#dadada', textDecoration: 'none' }}>
       <div className="card-body">
-        <p className={style.skillName}>{name}</p>
+        <h5>{name}</h5>
         <p style={{ marginBottom: '8px', overflowY: 'auto', maxHeight: '70px' }}>{description}</p>
         <div style={{ display: 'flex', width: '100%' }}>
           <span style={{ flex: 1 }}>{toolIcons}</span>
