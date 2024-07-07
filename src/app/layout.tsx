@@ -1,3 +1,4 @@
+import 'bootstrap-icons/font/bootstrap-icons.css';
 import 'bootstrap/dist/css/bootstrap.css';
 import style from './components/root.module.css';
 import Sidebar from './components/sidebar';
@@ -9,7 +10,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   // contact is an email div
 
   // on exp page, top is skills, bottom is half exp, hald edu
-  // for skills part, list where each li is a one word header, then under that is 
+  // for skills part, list where each li is a one word header, then under that is
   // sentence describing.
   // Ex.
   // AWS

@@ -12,5 +12,7 @@
   height: 60px;
   padding: 5px;
   border: 0;
-  background: #282c34;
+  background: #252525;
+  display:block;
+  border-radius: 50%;
 }

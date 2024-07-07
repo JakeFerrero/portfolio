@@ -4,13 +4,13 @@ export default function Sidebar() {
   return (
     <div className={`vstack gap-3 justify-content-center ${style.sidebarContainer}`}>
       <button type="button" className={`btn btn-secondary ${style.myButton}`}>
-        Home
+        <i className="bi bi-house-fill h4" />
       </button>
       <button type="button" className={`btn btn-secondary ${style.myButton}`}>
-        Experience
+        <i className="bi bi-person-fill h4" />
       </button>
       <button type="button" className={`btn btn-secondary ${style.myButton}`}>
-        Contact
+        <i className="bi bi-envelope-fill h4" />
       </button>
     </div>
   );
