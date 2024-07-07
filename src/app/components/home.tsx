@@ -11,7 +11,7 @@ export default function Home() {
         </div>
         <div className={style.textContainer}>
           <div>
-            <h1 style={{ color: 'blue' }}>Jake Ferrero</h1>
+            <h1 style={{ color: 'cornflowerblue' }}>Jake Ferrero</h1>
             <h3>Software Engineer</h3>
             <br />
             <p>
