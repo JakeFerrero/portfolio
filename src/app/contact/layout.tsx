@@ -1,7 +1,11 @@
-import style from '../components/contact.module.css';
+import Title from '../components/Title';
+import style from '../components/contact/contact.module.css';
 
-export default function ContactPageLayout({ children }: { children: React.ReactNode }) {
+export default function ContactLayout({ children }: { children: React.ReactNode }) {
   return (
-    <div className={style.contactContainer}>{children}</div>
+    <div className={style.layout}>
+      <Title title="Contact Me" />
+      {children}
+    </div>
   );
 }
