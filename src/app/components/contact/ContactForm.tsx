@@ -11,7 +11,7 @@ export default function ContactForm() {
       <textarea className={style.formTextField} style={{ height: '150px' }} name="message" placeholder="Message" required></textarea>
       <br /><br />
       <input type="checkbox" name="botcheck" className="hidden" style={{ display: 'none' }} />
-      <button type="submit" className="btn btn-primary" style={{ display: 'flex', alignItems: 'center' }}>
+      <button type="submit" className="btn btn-primary" style={{ display: 'flex', alignItems: 'center', background: '#252525', border: '2px solid #252525' }}>
         <i className="bi bi-send" />
         &nbsp;Send
       </button>

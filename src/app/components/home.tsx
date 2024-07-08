@@ -7,12 +7,12 @@ export default function Home() {
     <>
       <div className={style.homeContainer}>
         <div className={style.selfieContainer}>
-          <Image src={selfie} alt="Me" width={2426 * 0.2} height={3424 * 0.2} priority />
+          <Image src={selfie} alt="Me" width={2426 * 0.2} height={3424 * 0.2} priority style={{ borderRadius: '30px' }} />
         </div>
         <div className={style.textContainer}>
           <div>
-            <h1 style={{ color: 'cornflowerblue' }}>Jake Ferrero</h1>
-            <h3>Software Engineer</h3>
+            <h1 style={{ color: 'cornflowerblue', fontFamily: 'Copperplate', fontSize: '48px', margin: 0 }}>Jake Ferrero</h1>
+            <h2 style={{fontFamily: 'Copperplate', fontSize: '38px', margin: 0}}>Software Engineer</h2>
             <br />
             <p>
               I&apos;m a Software Developer with over 5 years of experience; particularly in backend development,
@@ -21,9 +21,12 @@ export default function Home() {
               solutions.
             </p>
             <br />
-            <button type="button" className={`btn btn-primary`}>
-              Download Resume
-            </button>
+            <a href="/resume.pdf" download="Jake Ferrero Resume" style={{textDecoration: 'none'}}>
+              <button type="button" className="btn btn-primary" style={{ display: 'flex', alignItems: 'center', background: '#252525', border: '2px solid #252525' }}>
+                <i className="bi bi-download" />
+                &nbsp;Download Resume
+              </button>
+            </a>
           </div>
         </div>
       </div>
