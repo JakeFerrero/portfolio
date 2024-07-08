@@ -34,7 +34,7 @@ export default function About() {
             <li className={style.litem}>
               <SkillCard
                 title="React"
-                description="Knowledge of building web apps using React and the NextJS framework."
+                description="Knowledge of building web applications using React and the NextJS framework."
               />
             </li>
           </ul>
@@ -55,8 +55,8 @@ export default function About() {
                 titles={['Technical Lead', 'Software Engineer']}
                 timeframe="April 2022 - May 2024"
                 descriptions={[
-                  "Led a team of engineers in developing and maintaining the company's largest integration. Worked with cross-organization teams to identify innovation; prioritize work; and set appropriate deadlines, ensuring the highest quality product was delivered on time. Introduced new tools that significantly reduced overhead as well as the time needed to create new integrations.",
-                  'Developed and maintained integrations with numerous 3rd party products, allowing customers to visualize asset data and their relationships in a single graph. Responsible for maintaining the platform, SDKs, and architecture responsible for running integrations.'
+                  "Led a team of engineers in developing and maintaining the company's largest integration. Worked with cross-organization teams to identify innovation, prioritize work, and set appropriate deadlines. Introduced new tools that significantly reduced overhead and time needed to create new integrations.",
+                  'Developed integrations with numerous 3rd-party applications, allowing customers to visualize asset data and their relationships in a single graph. Maintained the platform responsible for running integrations, including SDKs and infrastructure.'
                 ]}
               />
             </li>
@@ -65,7 +65,9 @@ export default function About() {
                 company="Genesys"
                 titles={['Software Engineer']}
                 timeframe="December 2018 - April 2022"
-                descriptions={['TODO']}
+                descriptions={[
+                  'Was responsible for developing and maintaining the cloud-based microservices that make up the Integrations feature inside of the Genesys Cloud platform. Designed and built a new service that allowed for rapid integration of customer applications inside Genesys Cloud.'
+                ]}
               />
             </li>
             <li className={style.litem}>
@@ -73,7 +75,9 @@ export default function About() {
                 company="Oracle"
                 timeframe="May 2016 - December 2016"
                 titles={['Cloud Developer (Internship)']}
-                descriptions={['TODO']}
+                descriptions={[
+                  'Developed a cloud-based platform that delivered Environment-as-a-Service to our internal partners. Created GitLab CI pipelines that reflected a production environment for testing automation.'
+                ]}
               />
             </li>
           </ul>
