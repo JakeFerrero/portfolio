@@ -1,12 +1,2 @@
-# Website
-Personal Website
-
-## Getting Started
-
-Run the development server:
-
-```bash
-npm run dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+# Portfolio
+Personal website and portfolio built using React, NextJS, and Typescript.
