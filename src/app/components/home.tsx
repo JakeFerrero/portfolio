@@ -21,7 +21,7 @@ export default function Home() {
               solutions.
             </p>
             <br />
-            <a href="/resume.pdf" download="Jake Ferrero Resume" style={{textDecoration: 'none'}}>
+            <a href="/portfolio/resume.pdf" download="Jake Ferrero Resume" style={{textDecoration: 'none'}}>
               <button type="button" className="btn btn-primary" style={{ display: 'flex', alignItems: 'center', background: '#252525', border: '2px solid #252525' }}>
                 <i className="bi bi-download" />
                 &nbsp;Download Resume
