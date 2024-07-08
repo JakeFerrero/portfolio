@@ -3,7 +3,7 @@ import style from '../components/experience.module.css';
 import ExperienceCard from '../components/ExperienceCard';
 import ProjectCard from '../components/ProjectCard';
 import SkillCard from '../components/skillCard';
-import Title from '../components/Title';
+import Title from '../components/titleCard';
 
 export default function About() {
   return (
