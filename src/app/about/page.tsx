@@ -28,7 +28,7 @@ export default function About() {
             <li className={style.litem}>
               <SkillCard
                 title="Leadership"
-                description="Demonstrated communication and management skills as a technical lead, navigating complex challenges and delivering high quality software solutions while adhering to timelines and requirements."
+                description="Served as a technical lead, facilitating team cohesion; managing project timelines; and guiding the team to deliver solutions that meet project requirements."
               />
             </li>
             <li className={style.litem}>
@@ -95,8 +95,8 @@ export default function About() {
             </li>
             <li className={style.projectlitem} style={{ marginTop: '16px', marginBottom: '16px' }}>
               <ProjectCard
-                name="Website"
-                link="https://github.com/JakeFerrero/website"
+                name="Portfolio"
+                link="https://github.com/JakeFerrero/portfolio"
                 tools={['Typescript', 'React', 'NextJS']}
                 description="Personal website and portfolio built using React, NextJS, and Typescript."
               />
