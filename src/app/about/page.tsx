@@ -1,8 +1,8 @@
-import Education from '../components/Education';
-import style from '../components/experience.module.css';
-import ExperienceCard from '../components/ExperienceCard';
-import ProjectCard from '../components/ProjectCard';
-import SkillCard from '../components/skillCard';
+import Education from '../components/about/Education';
+import Experience from '../components/about/Experience';
+import ProjectCard from '../components/about/ProjectCard';
+import Skill from '../components/about/Skill';
+import style from '../components/about/about.module.css';
 import Title from '../components/titleCard';
 
 export default function About() {
@@ -14,25 +14,25 @@ export default function About() {
           <p className={style.sectionTitle}>Skills</p>
           <ul className={style.ulist}>
             <li className={style.litem}>
-              <SkillCard
+              <Skill
                 title="NodeJS + Typescript"
                 description="Over 5 years of experience developing robust, cloud-based NodeJS microservices in Typescript."
               />
             </li>
             <li className={style.litem}>
-              <SkillCard
+              <Skill
                 title="AWS"
                 description="Extensive experience developing and maintaining scalable applications leveraging many of AWS's core services."
               />
             </li>
             <li className={style.litem}>
-              <SkillCard
+              <Skill
                 title="Leadership"
                 description="Served as a technical lead, facilitating team cohesion; managing project timelines; and guiding the team to deliver solutions that meet project requirements."
               />
             </li>
             <li className={style.litem}>
-              <SkillCard
+              <Skill
                 title="React"
                 description="Knowledge of building web applications using React and the NextJS framework."
               />
@@ -50,7 +50,7 @@ export default function About() {
           <p className={style.sectionTitle}>Experience</p>
           <ul className={style.ulist}>
             <li className={style.litem}>
-              <ExperienceCard
+              <Experience
                 company="JupiterOne"
                 titles={['Technical Lead', 'Software Engineer']}
                 timeframe="April 2022 - May 2024"
@@ -61,7 +61,7 @@ export default function About() {
               />
             </li>
             <li className={style.litem}>
-              <ExperienceCard
+              <Experience
                 company="Genesys"
                 titles={['Software Engineer']}
                 timeframe="December 2018 - April 2022"
@@ -71,7 +71,7 @@ export default function About() {
               />
             </li>
             <li className={style.litem}>
-              <ExperienceCard
+              <Experience
                 company="Oracle"
                 timeframe="May 2016 - December 2016"
                 titles={['Cloud Developer (Internship)']}

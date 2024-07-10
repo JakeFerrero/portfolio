@@ -5,7 +5,7 @@ interface Props {
   description: string;
 }
 
-export default function SkillCard({ title, description }: Props) {
+export default function Skill({ title, description }: Props) {
   return (
     <div>
       <span className={style.skillName}>{title}</span>

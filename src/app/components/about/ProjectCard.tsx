@@ -1,9 +1,9 @@
 import Image from 'next/image';
-import githubIcon from '../public/github.png';
-import nextjsIcon from '../public/nextjs.png';
-import nodejsIcon from '../public/nodejs.png';
-import reactIcon from '../public/react.png';
-import tsIcon from '../public/typescript.png';
+import githubIcon from '../../public/github.png';
+import nextjsIcon from '../../public/nextjs.png';
+import nodejsIcon from '../../public/nodejs.png';
+import reactIcon from '../../public/react.png';
+import tsIcon from '../../public/typescript.png';
 
 type Tool = 'Typescript' | 'NodeJS' | 'React' | 'NextJS';
 
