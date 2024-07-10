@@ -3,12 +3,10 @@ import Experience from '../components/about/Experience';
 import ProjectCard from '../components/about/ProjectCard';
 import Skill from '../components/about/Skill';
 import style from '../components/about/about.module.css';
-import Title from '../components/titleCard';
 
 export default function About() {
   return (
     <>
-      <Title title="About Me" />
       <div className={style.expContainer}>
         <div className={style.expColLarge}>
           <p className={style.sectionTitle}>Skills</p>
