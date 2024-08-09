@@ -54,7 +54,7 @@ export default function About() {
                 timeframe="April 2022 - May 2024"
                 descriptions={[
                   "Led a team of engineers in developing and maintaining the company's largest integration. Worked with cross-organization teams to identify innovation, prioritize work, and set appropriate deadlines. Introduced new tools that significantly reduced overhead and time needed to create new integrations.",
-                  'Developed integrations with numerous 3rd-party applications, allowing customers to visualize asset data and their relationships in a single graph. Maintained the platform responsible for running integrations, including SDKs and infrastructure.'
+                  'Developed integrations written in Typescript that connected with numerous 3rd-party applications, allowing customers to visualize asset data and their relationships in a single graph. Maintained the platform responsible for running integrations, including internal Typescript SDKs and infrastructure.'
                 ]}
               />
             </li>
@@ -64,7 +64,7 @@ export default function About() {
                 titles={['Software Engineer']}
                 timeframe="December 2018 - April 2022"
                 descriptions={[
-                  'Was responsible for developing and maintaining the cloud-based microservices that make up the Integrations feature inside of the Genesys Cloud platform. Designed and built a new service that allowed for rapid integration of customer applications inside Genesys Cloud.'
+                  'Was responsible for developing and maintaining the NodeJS cloud-based microservices that make up the Integrations feature inside of the Genesys Cloud platform. Designed and built a new service written in Typescript that allowed for rapid integration of customer applications inside Genesys Cloud.'
                 ]}
               />
             </li>
@@ -74,7 +74,7 @@ export default function About() {
                 timeframe="May 2016 - December 2016"
                 titles={['Cloud Developer (Internship)']}
                 descriptions={[
-                  'Developed a cloud-based platform that delivered Environment-as-a-Service to our internal partners. Created GitLab CI pipelines that reflected a production environment for testing automation.'
+                  'Developed a cloud-based platform using Golang that delivered Environment-as-a-Service to our internal partners. Created GitLab CI pipelines that reflected a production environment for testing automation.'
                 ]}
               />
             </li>
