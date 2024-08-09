@@ -7,9 +7,9 @@ import style from '../components/about/about.module.css';
 export default function About() {
   return (
     <>
-      <div className={style.expContainer}>
-        <div className={style.expColLarge}>
-          <p className={style.sectionTitle}>Skills</p>
+      <div className={style.columnContainer}>
+        <div className={style.largeColumn}>
+          <p className={style.columnTitle}>Skills</p>
           <ul className={style.ulist}>
             <li className={style.litem}>
               <Skill
@@ -37,15 +37,15 @@ export default function About() {
             </li>
           </ul>
         </div>
-        <div className={style.expColSmall}>
-          <p className={style.sectionTitle}>Education</p>
+        <div className={style.smallColumn}>
+          <p className={style.columnTitle}>Education</p>
           <Education />
         </div>
       </div>
       <hr />
-      <div className={style.expContainer}>
-        <div className={style.expColLarge}>
-          <p className={style.sectionTitle}>Experience</p>
+      <div className={style.columnContainer}>
+        <div className={style.largeColumn}>
+          <p className={style.columnTitle}>Experience</p>
           <ul className={style.ulist}>
             <li className={style.litem}>
               <Experience
@@ -80,8 +80,8 @@ export default function About() {
             </li>
           </ul>
         </div>
-        <div className={style.expColSmall}>
-          <p className={style.sectionTitle}>Projects</p>
+        <div className={style.smallColumn}>
+          <p className={style.columnTitle}>Projects</p>
           <ul className={style.ulist}>
             <li className={style.projectlitem} style={{ marginTop: '16px', marginBottom: '16px' }}>
               <ProjectCard

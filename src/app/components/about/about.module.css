@@ -1,44 +1,28 @@
-.skillContainer {
-  padding: 5px;
-}
+/* ----- Layout ----- */
 
-.expTitle {
-  font-family: 'Copperplate';
-  color: cornflowerblue;
-  font-size: 24px;
-  margin: 0;
-  text-align: left;
-}
-
-.expSubtitle {
-  font-family: 'Copperplate';
-  color: white;
-  font-size: 20px;
-  margin: 0;
-  text-align: left;
-}
-
-.expContainer {
+.columnContainer {
   display: flex;
 }
 
-.expColLarge {
+.largeColumn {
+  width: 60%;
   padding: 5px;
-  width: 60%
 }
 
-.expColSmall {
+.smallColumn {
   flex: 1;
+  width: 40%;
   padding: 5px;
   padding-left: 5%;
   padding-right: 5%;
-  width: 40%;
 }
+
+/* ----- Lists ----- */
 
 .ulist {
   list-style-type: none; /* Remove bullets */
-  padding: 0; /* Remove padding */
-  margin: 0; /* Remove margins */
+  padding: 0;
+  margin: 0;
 }
 
 .litem {
@@ -51,24 +35,28 @@
   margin-bottom: 20px;
 }
 
-.expEduWrapper {
-  display: flex;
-}
+/* ----- Text ----- */
 
-.eContainer {
-  flex: 1;
-  padding: 5px;
-}
-
-.eduContainer {
-  flex: 1;
-  padding: 5px;
-  padding-left: 10px;
-}
-
-.sectionTitle {
+.columnTitle {
   font-family: 'Copperplate';
   font-size: 24px;
-  margin-bottom: 4px;
   text-align: center;
+  color: white;
+  margin-bottom: 5px;
+}
+
+.expTitle {
+  font-family: 'Copperplate';
+  font-size: 24px;
+  text-align: left;
+  color: cornflowerblue;
+  margin: 0;
+}
+
+.expSubtitle {
+  font-family: 'Copperplate';
+  font-size: 20px;
+  text-align: left;
+  color: white;
+  margin: 0;
 }
