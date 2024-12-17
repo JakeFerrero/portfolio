@@ -1,52 +1,74 @@
-.mainContentContainer {
+.container {
   display: flex;
   height: 100%;
-  width: 100%
+  align-items: center;
+  justify-content: space-between;
+  gap: 2em;
 }
 
-.contactTextColumn {
-  flex: 1;
-  height: 100%;
-  padding: 5px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.emailFormColumn {
-  flex: 1;
-  height: 100%;
-  padding: 5px;
-  padding-left: 20px;
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-}
-
-.header {
-  font-family: 'Copperplate';
-  color: white;
-  font-size: 24px;
+.container p, .container h4 {
   margin: 0;
-  text-align: left;
-  padding-bottom: 10px;
 }
 
-.buttonContainer {
+.grid {
+  flex: 1;
+  display: grid;
+  row-gap: 1rem;
+}
+
+.formContainer {
+  flex: 1;
+}
+
+.sideBySide {
   display: flex;
   justify-content: center;
-  gap: 30px;
+  gap: 4rem;
+  margin-top: .5rem;
+  z-index: 1;
 }
 
-.cardContainer {
-  padding-bottom: 10px;
-}
+/* ----- Button ----- */
+@property --gradient-angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+} /* All three of these properties are needed or property won't register */
 
-.formTextField {
+.button {
+  position: relative;
+  width: 64px;
+  height: 64px;
   color: white;
-  background-color: #252525;
-  border-radius: 10px;
-  border: 0;
-  padding: 10px;
-  width: 100%;
+  background: #222;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.button::before,
+.button::after {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: inherit;
+  background: conic-gradient(
+    from var(--gradient-angle),
+    #00bfff,
+    #3e84f2,
+    #fd5e53,
+    #fd8953,
+    #00bfff
+  );
+  animation: rotation 4s linear infinite;
+  z-index: -1;
+}
+
+.button::after {
+  filter: blur(1rem);
+}
+
+@keyframes rotation {
+  0% { --gradient-angle: 0deg; }
+  100% { --gradient-angle: 360deg; }
 }

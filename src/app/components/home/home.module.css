@@ -1,0 +1,124 @@
+.container {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+#selfie {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+#details {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+
+  padding: 2rem 0 2rem 2.5rem;
+}
+
+#details > * {
+  text-align: left;
+  margin: 0;
+  margin-bottom: 1rem;
+}
+
+/* ----- Rotating text ----- */
+
+.carousel {
+  display: flex;
+  position: relative;
+  width: 100%;
+  height: 58px;
+  overflow: hidden;
+}
+
+.rotatingWords {
+  display: inline-flex;
+  flex: 1;
+  position: relative;
+  height: 100%; /* TODO: needed? */
+}
+
+.rotatingWords span {
+  background: linear-gradient(to right, #00bfff, #3e84f2, #fd5e53, #fd8953);
+  background-clip: text;
+  color: transparent;
+}
+
+.rotatingWord {
+  position: absolute;
+  inset: 0;
+  width: fit-content;
+  height: 100%;
+  
+  display: block;
+  text-align: center;
+  transform: translateY(100%);
+}
+
+.rotatingWord.animate {
+  animation: rotate-words 3s infinite linear; /* Duration depends on number of words */
+}
+
+@keyframes rotate-words {
+  0% {
+    transform: translateY(100%);
+  }
+  10%,
+  90% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-100%);
+  }
+}
+
+/* ----- Button ----- */
+@property --gradient-angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+} /* All three of these properties are needed or property won't register */
+
+.button {
+  position: relative;
+  padding: 10px 20px;
+  font-size: 16px;
+  color: white;
+  background: #333;
+  border: none;
+  border-radius: .5rem;
+  cursor: pointer;
+}
+
+.button::before,
+.button::after {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: inherit;
+  background: conic-gradient(
+    from var(--gradient-angle),
+    #00bfff,
+    #3e84f2,
+    #fd5e53,
+    #fd8953,
+    #00bfff
+  );
+  animation: rotation 4s linear infinite;
+  z-index: -1;
+}
+
+.button::after {
+  filter: blur(1rem);
+}
+
+@keyframes rotation {
+  0% { --gradient-angle: 0deg; }
+  100% { --gradient-angle: 360deg; }
+}

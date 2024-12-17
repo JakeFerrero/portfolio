@@ -1,0 +1,17 @@
+.subsection {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+
+  padding: 2.5rem 0;
+
+  opacity: 0;
+  transform: translateY(50px);
+  transition: transform 1s cubic-bezier(0, 0, 0.5, 1), opacity 1s cubic-bezier(0, 0, 0.5, 1);
+}
+
+.subsection.show {
+  opacity: 1;
+  transform: translateY(0);
+}

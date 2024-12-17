@@ -1,0 +1,82 @@
+.projectsGrid {
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-columns: repeat(3, 275px);
+  gap: 3rem;
+  background-color: transparent;
+  justify-content: center;
+}
+
+.cardContainer {
+  position: relative;
+  display: flex;
+  width: 275px;
+  height: 275px;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+}
+
+.card {
+  display: flex;
+  width: 250px;
+  height: 250px;
+  position: relative;
+  background: #191919;
+  border: 3px solid;
+  border-image: linear-gradient(to bottom, #00bfff, #3e84f2, #fd5e53, #fd8953) 1;
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.5);
+
+  transform: translateX(100%);
+  opacity: 0;
+
+  transition: width 0.3s ease, height 0.3s ease, box-shadow 0.3s ease, transform 0.5s ease, opacity 0.5s ease;
+
+  grid-row: 1;
+}
+.cardContainer::before {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+
+  background: linear-gradient(to bottom, #00bfff, #3e84f2, #fd5e53, #fd8953);
+  opacity: 0;
+  filter: blur(25px);
+  transition: opacity 0.8s ease-in, transform 0.8s ease;
+}
+
+.card1 {
+  grid-column: 1;
+}
+
+.card2 {
+  grid-column: 2;
+}
+
+.card3 {
+  grid-column: 3;
+}
+
+.cardContainer.beforeVisible::before {
+  opacity: 0.7;
+  transform: scale(0.9);
+}
+
+.card:hover {
+  width: 275px;
+  height: 275px;
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.8);
+}
+
+.cardContainer:hover::before {
+  transform: scale(1.1);
+  opacity: 1;
+}
+
+.card.slideIn {
+  transform: translateX(0);
+  opacity: 1;
+}

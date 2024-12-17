@@ -1,0 +1,113 @@
+import { useEffect } from 'react';
+import ExperienceBlock from './ExperienceBlock';
+import style from './experience.module.css';
+
+export default function Experience() {
+  useEffect(() => {
+    const subsections = document.querySelectorAll(`.${style.subsection}`);
+    const subSectionObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          let hasCrossed = false;
+          if (entry.isIntersecting) {
+            if (!hasCrossed) {
+              entry.target.classList.add(`${style.show}`);
+              hasCrossed = true; // Lock the state
+            }
+          } else {
+            // User scrolls back up past the line
+            const isScrollingUp = entry.boundingClientRect.top > 0;
+            if (isScrollingUp) {
+              entry.target.classList.remove(`${style.show}`);
+              hasCrossed = false; // Unlock the state
+            }
+          }
+        });
+      },
+      {
+        threshold: 0.75
+      }
+    );
+
+    subsections.forEach((subsection) => subSectionObserver.observe(subsection));
+  });
+
+  return (
+    <>
+      <div className="sectionTitle">
+        <h1>
+          <span>Experience</span>
+        </h1>
+      </div>
+      <div className={style.subsection}>
+        <ExperienceBlock
+          company="Oracle"
+          color="red"
+          titles={['Cloud Developer Co-op']}
+          startDates={['May 2016']}
+          endDates={['December 2016']}
+          bulletPoints={[
+            [
+              'Developed a cloud-based platform in Go that delivered Environment-as-a-Service to customers',
+              'Created GitLab Continuous Integration pipelines that reflected a production environment for testing automation'
+            ]
+          ]}
+        />
+      </div>
+      <div className={`${style.subsection}`}>
+        <ExperienceBlock
+          company="JupiterOne"
+          color="#02bea5"
+          titles={['Software Engineer', 'Technical Lead']}
+          startDates={['April 2022', 'December 2023']}
+          endDates={['December 2023', 'May 2024']}
+          bulletPoints={[
+            [
+              "Led a team of engineers in developing and maintaining the company's most profitable integration",
+              'Worked with cross-organization teams to identify innovation, prioritize work, and set deadlines',
+              'Created a tool that significantly reduced development overhead and enabled rapid creation of new integrations'
+            ],
+            [
+              'Built NodeJS integrations to connect third-party products, enabling customers to visualize asset data and relationships in a unified graph',
+              'Implemented event-driven ingestion in our largest integration, enabling real-time updates of customer assets - a first for the company',
+              'Served as incident commander during emergencies, diagnosing root causes, deploying fixes, and presenting mitigation strategies to stakeholders',
+              'Introduced standardized observability with New Relic, improving product health insights and accelerating emergency responses'
+            ]
+          ]}
+        />
+      </div>
+      <div className={style.subsection}>
+        <ExperienceBlock
+          company="Genesys"
+          color="#ff4f1f"
+          titles={['Software Engineer']}
+          startDates={['December 2018']}
+          endDates={['April 2022']}
+          bulletPoints={[
+            [
+              'Developed the RESTful API responsible for serving and maintaining integrations inside Genesys Cloud',
+              'Delivered a microservice written in Typescript that allowed for rapid integration of customer applications inside the Genesys Cloud platform',
+              'Migrated our API to a fully serverless architecture, cutting cost and deployment times while maintaining millisecond response times and high availability',
+              "Ensured the team's services were FedRAMP compliant and appropriately handled PII and sensitive data"
+            ]
+          ]}
+        />
+      </div>
+      <div className={style.subsection}>
+        <ExperienceBlock
+          company="Oracle"
+          color="red"
+          titles={['Cloud Developer Co-op']}
+          startDates={['May 2016']}
+          endDates={['December 2016']}
+          bulletPoints={[
+            [
+              'Developed a cloud-based platform in Go that delivered Environment-as-a-Service to customers',
+              'Created GitLab Continuous Integration pipelines that reflected a production environment for testing automation'
+            ]
+          ]}
+        />
+      </div>
+    </>
+  );
+}
