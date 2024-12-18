@@ -42,15 +42,13 @@ export default function Experience() {
       </div>
       <div className={style.subsection}>
         <ExperienceBlock
-          company="Oracle"
-          color="red"
-          titles={['Cloud Developer Co-op']}
-          startDates={['May 2016']}
-          endDates={['December 2016']}
+          company="HubSpot"
+          color="orange"
+          titles={['Senior Software Engineer']}
+          startDates={['May 2024']}
           bulletPoints={[
             [
-              'Developed a cloud-based platform in Go that delivered Environment-as-a-Service to customers',
-              'Created GitLab Continuous Integration pipelines that reflected a production environment for testing automation'
+              'Frontend developer working on the Application Lists team'
             ]
           ]}
         />
