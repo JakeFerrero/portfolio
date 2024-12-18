@@ -22,7 +22,7 @@ export default function About() {
         const reverseIndex = items.length - 1 - index;
         setTimeout(() => {
           child.classList.remove(`${style.slideIn}`);
-        }, reverseIndex * 100);
+        }, reverseIndex * 160);
       });
     }
 
@@ -47,7 +47,7 @@ export default function About() {
         });
       },
       {
-        threshold: 0.8
+        threshold: 0.85
       }
     );
 
@@ -75,7 +75,7 @@ export default function About() {
         });
       },
       {
-        threshold: 0.55
+        threshold: 0.33
       }
     );
 
