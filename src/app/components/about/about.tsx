@@ -5,35 +5,82 @@ import style from './about.module.css';
 
 export default function About() {
   useEffect(() => {
-    const items = document.querySelectorAll(`.${style.gridContainer} .${style.item}`);
+    const items = document.querySelectorAll(`.${style.item}`);
+    const grid = document.querySelector(`.${style.grid}`);
+    const hobbies = document.querySelector(`.${style.hobbyContainer}`);
 
     function revealItemsSequentially() {
       items.forEach((child, index) => {
-        let order = 0;
-        if (index === 4) order = 2;
-        else if (index % 2 !== 0) order = 1;
-
         setTimeout(() => {
           child.classList.add(`${style.slideIn}`);
-        }, order * 250);
+        }, index * 150);
       });
     }
 
-    const aboutObserver = new IntersectionObserver(
+    function removeItemsSequentially() {
+      items.forEach((child, index) => {
+        const reverseIndex = items.length - 1 - index;
+        setTimeout(() => {
+          child.classList.remove(`${style.slideIn}`);
+        }, reverseIndex * 100);
+      });
+    }
+
+    let gridHasCrossed = false;
+
+    const gridObserver = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            revealItemsSequentially();
-            aboutObserver.unobserve(entry.target); // Only trigger on parent
+            if (!gridHasCrossed) {
+              revealItemsSequentially();
+              gridHasCrossed = true; // Lock the state
+            }
+          } else {
+            // User scrolls back up past the line
+            const isScrollingUp = entry.boundingClientRect.top > 0;
+            if (isScrollingUp) {
+              removeItemsSequentially();
+              gridHasCrossed = false; // Unlock the state
+            }
           }
         });
       },
       {
-        threshold: 0.5
+        threshold: 0.8
       }
     );
 
-    aboutObserver.observe(document.querySelector(`.${style.gridContainer}`) as any);
+    // TODO: why any
+    gridObserver.observe(grid as any);
+
+    let hobbiesHasCrossed = false;
+
+    const hobbyObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            if (!hobbiesHasCrossed) {
+              entry.target.classList.add(`${style.show}`);
+              hobbiesHasCrossed = true; // Lock the state
+            }
+          } else {
+            // User scrolls back up past the line
+            const isScrollingUp = entry.boundingClientRect.top > 0;
+            if (isScrollingUp) {
+              entry.target.classList.remove(`${style.show}`);
+              hobbiesHasCrossed = false; // Unlock the state
+            }
+          }
+        });
+      },
+      {
+        threshold: 0.55
+      }
+    );
+
+    // TODO: why any
+    hobbyObserver.observe(hobbies as any);
   });
 
   return (
@@ -57,8 +104,8 @@ export default function About() {
         </span>
       </div>
       {/* ----- GRID ----- */}
-      <div className={style.gridContainer}>
-        <div className={style.item}>
+      <div className={style.grid}>
+        <div className={style.item} id={style.exp}>
           <h4>
             5 Years
             <br />
@@ -72,13 +119,13 @@ export default function About() {
             </ul>
           </div>
         </div>
-        <div className={style.item}>
+        <div className={style.item} id={style.aws}>
           <h4>AWS</h4>
           <div className={style.itemText}>
-            <p>5 years of experience developing scalable microservices leveraging core AWS services</p>
+            <p>5 years of experience developing scalable microservices leveraging AWS</p>
           </div>
         </div>
-        <div className={style.item}>
+        <div className={style.item} id={style.ui}>
           <h4>
             UI / UX
             <br />
@@ -92,36 +139,23 @@ export default function About() {
             </ul>
           </div>
         </div>
-        <div className={style.item}>
+        <div className={style.item} id={style.leadership}>
           <h4>Leadership</h4>
           <div className={style.itemText}>
             <p>Proven leadership skills as a technical lead for a small group of engineers</p>
           </div>
         </div>
-        <div className={`${style.item} ${style.item5}`}>
+        <div className={style.item} id={style.edu}>
           <h4>Education</h4>
-          <div className={style.exp}>
-            <div className={style.expIcon}>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                fill="currentColor"
-                className="bi bi-mortarboard-fill"
-                viewBox="0 0 16 16"
-              >
-                <path d="M8.211 2.047a.5.5 0 0 0-.422 0l-7.5 3.5a.5.5 0 0 0 .025.917l7.5 3a.5.5 0 0 0 .372 0L14 7.14V13a1 1 0 0 0-1 1v2h3v-2a1 1 0 0 0-1-1V6.739l.686-.275a.5.5 0 0 0 .025-.917z" />
-                <path d="M4.176 9.032a.5.5 0 0 0-.656.327l-.5 1.7a.5.5 0 0 0 .294.605l4.5 1.8a.5.5 0 0 0 .372 0l4.5-1.8a.5.5 0 0 0 .294-.605l-.5-1.7a.5.5 0 0 0-.656-.327L8 10.466z" />
-              </svg>
-            </div>
-            <h3 style={{ color: 'red' }}>NC State University</h3>
-            <p style={{ margin: '1rem 0' }}>August 2013 - December 2018</p>
-            <ul className={style.expList}>
-              <li>Bachelor&apos;s of Science: Computer Science</li>
-              <li>Minor: Japanese</li>
-              <li>GPA: 4.0</li>
-            </ul>
-          </div>
+          <h3 style={{ color: 'red' }}>NC State University</h3>
+          <span>
+            <span style={{ fontSize: '1.3rem', color: 'grey' }}>Raleigh, North Carolina</span> <span>2013 - 2018</span>
+          </span>
+          <span>Bachelor&apos;s Degree, Computer Science</span>
+          <h3 style={{ color: 'maroon' }}>Sophia University</h3>
+          <span>
+            <span style={{ fontSize: '1.3rem', color: 'grey' }}>Tokyo, Japan</span> <span>2018</span>
+          </span>
         </div>
       </div>
       {/* ----- HOBBY ----- */}
@@ -133,14 +167,10 @@ export default function About() {
             dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
             ea commodo consequat.
           </span>
-          <br />
-          <br />
-          <span>
-            日本語のquote
-          </span>
+          <span>日本語のquote</span>
         </div>
         <div id={style.hobbyPic}>
-          <Image src={pic} alt="japan_pic" width={3024 * .14} height={4032 * .14} style={{ borderRadius: '5%' }} />
+          <Image src={pic} alt="japan_pic" width={3024 * 0.14} height={4032 * 0.14} style={{ borderRadius: '5%' }} />
         </div>
       </div>
     </>

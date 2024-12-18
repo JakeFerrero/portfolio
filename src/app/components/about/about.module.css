@@ -19,16 +19,53 @@
 
 /* ----- Grid ----- */
 
-.gridContainer {
+.grid {
   display: grid;
-  grid-template-rows: repeat(2, 1fr);
-  grid-template-columns: repeat(4, 1fr);
   grid-gap: 1em;
+  grid-template-columns: 1fr 1fr 2fr;
+  grid-template-rows: repeat(2, 1fr);
+  grid-template-areas:
+    'exp aws edu'
+    'ui leadership edu';
+
+  width: 100%;
+}
+
+@media only screen and (max-width: 1000px) {
+  .grid {
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      'exp aws'
+      'ui leadership'
+      'edu edu';
+
+    max-width: 800px;
+  }
+}
+
+#exp {
+  grid-area: exp;
+}
+
+#aws {
+  grid-area: aws;
+}
+
+#ui {
+  grid-area: ui;
+}
+
+#leadership {
+  grid-area: leadership;
+}
+
+#edu {
+  grid-area: edu;
 }
 
 .item {
   background-color: #353535;
-  border-radius: 15px;
+  border-radius: 1rem;
   padding: 1rem;
 
   font-size: 1rem;
@@ -37,14 +74,10 @@
   flex-direction: column;
   justify-content: center;
 
-  transform: translateX(100%);
+  /* animation */
+  transform: translateX(200%);
   opacity: 0;
-
-  transition: transform 1s ease, opacity 1.2s ease;
-}
-
-.item p {
-  flex: 1;
+  transition: transform .5s ease, opacity .5s ease-in-out;
 }
 
 .item.slideIn {
@@ -58,13 +91,8 @@
   padding-left: 10px;
 }
 
-.item span {
-  background: linear-gradient(to right, #00bfff, #3e84f2, #fd5e53, #fd8953);
-  background-clip: text;
-  color: transparent;
-}
-
 .item p {
+  flex: 1;
   margin: 0;
 }
 
@@ -74,60 +102,15 @@
   margin: 0;
   position: relative;
 }
+#edu ul {
+  list-style-type: disc;
+  padding-left: 1rem;
+}
 
 .item li {
   line-height: 1.5rem;
 }
 
-.item5 {
-  grid-row: 1 / 3;
-  grid-column: 3 / 5;
-  padding: 1rem 3rem;
-}
-
-.item5 ul {
-  list-style-type: disc;
-  padding-left: 1rem;
-}
-
-.item5 h4 {
-  font-size: 2rem;
-  margin-bottom: 2.5rem;
-}
-
-.exp {
-  border-left: 2px solid;
-  border-image: linear-gradient(to bottom, #00bfff, #3e84f2, #fd5e53, #fd8953) 1;
-  padding-left: 2rem;
-  position: relative;
-  text-align: left;
-  width: 100%;
-}
-.exp::before {
-  content: '';
-  background-color: #222;
-  border-radius: 50%;
-  width: 3rem;
-  height: 3rem;
-  position: absolute;
-  top: -0.5rem;
-  left: -25px;
-}
-
-.expIcon {
-  position: absolute;
-  top: 4px;
-  left: -13px;
-}
-
-.expList {
-  padding-left: 1rem;
-  margin: 0;
-}
-
-.expList li {
-  line-height: 2rem;
-}
 
 /* ----- Hobbies ----- */
 .hobbyContainer {
@@ -135,6 +118,15 @@
   justify-content: center;
   align-items: center;
   gap: 50px;
+
+  opacity: 0;
+  transform: translateY(50px);
+  transition: transform 1s cubic-bezier(0, 0, 0.5, 1), opacity 1s cubic-bezier(0, 0, 0.5, 1);
+}
+
+.hobbyContainer.show {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 #hobbyPic {
@@ -146,8 +138,12 @@
 #hobbyDetails {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: start;
   height: 100%;
 
   padding: 2rem;
+}
+
+#hobbyDetails > * {
+  margin: 1rem 0;
 }

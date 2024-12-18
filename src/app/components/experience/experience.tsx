@@ -5,10 +5,11 @@ import style from './experience.module.css';
 export default function Experience() {
   useEffect(() => {
     const subsections = document.querySelectorAll(`.${style.subsection}`);
+    
     const subSectionObserver = new IntersectionObserver(
       (entries) => {
+        let hasCrossed = false;
         entries.forEach((entry) => {
-          let hasCrossed = false;
           if (entry.isIntersecting) {
             if (!hasCrossed) {
               entry.target.classList.add(`${style.show}`);
@@ -25,7 +26,7 @@ export default function Experience() {
         });
       },
       {
-        threshold: 0.75
+        threshold: 0.5
       }
     );
 
