@@ -24,7 +24,6 @@ export default function Home() {
     <div className={style.container}>
       <div id={style.selfie}>
         <Image src={selfie} alt="selfie" width={436} height={616} style={{ borderRadius: '5%' }} />
-        {/* <img src="../../../public/website_selfie.jpg" width="436px" height="616px" style={{ borderRadius: '5%' }} /> */}
       </div>
       <div id={style.details}>
         <h1>
@@ -42,10 +41,12 @@ export default function Home() {
             </div>
           </div>
         </h2>
+        <br />
         <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
           magna aliqua.
         </p>
+        <br />
         <div className={style.buttonContainer}>
           <button className={style.button}>Download Resume</button>
         </div>

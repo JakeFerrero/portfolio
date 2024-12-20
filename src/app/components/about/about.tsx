@@ -147,7 +147,7 @@ export default function About() {
         </div>
         <div className={style.item} id={style.edu}>
           <h4>Education</h4>
-          <h3 style={{ color: 'red' }}>NC State University</h3>
+          <span className='proper-name' style={{ color: 'red' }}>NC State University</span>
           <span>
             <span style={{ fontSize: '1.3rem', color: 'grey' }}>Raleigh, North Carolina</span> <span>2013 - 2018</span>
           </span>
@@ -161,7 +161,7 @@ export default function About() {
       {/* ----- HOBBY ----- */}
       <div className={style.hobbyContainer}>
         <div id={style.hobbyDetails}>
-          <h4>Hobbies & Interests</h4>
+          <h3>Hobbies & Interests</h3>
           <span>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
             dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex

@@ -1,15 +1,8 @@
 .container {
   display: flex;
-  width: 100%;
-  height: 100%;
-  justify-content: center;
+  justify-content: space-between;
+  gap: 50px;
   align-items: center;
-}
-
-#selfie {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
 }
 
 #details {
@@ -18,12 +11,14 @@
   justify-content: center;
   height: 100%;
 
-  padding: 2rem 0 2rem 2.5rem;
+  padding: 20px;
 }
 
 #details > * {
   text-align: left;
-  margin: 0;
+}
+
+#details h1, #details h2 {
   margin-bottom: 1rem;
 }
 
@@ -79,6 +74,7 @@
 }
 
 /* ----- Button ----- */
+
 @property --gradient-angle {
   syntax: "<angle>";
   initial-value: 0deg;
@@ -86,6 +82,7 @@
 } /* All three of these properties are needed or property won't register */
 
 .button {
+  width: fit-content;
   position: relative;
   padding: 10px 20px;
   font-size: 16px;
