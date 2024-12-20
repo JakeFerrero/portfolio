@@ -76,7 +76,111 @@
   opacity: 1;
 }
 
-.card.slideIn {
+/* ---------------------------------------------- */
+.gridContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+
+  flex: 1;
+}
+
+.grid, .descriptionGrid {
+  display: grid;
+  gap: 2rem 50px;
+  grid-template-columns: 256px 256px 256px;
+}
+
+.itemWrapper {
+  width: 100%; /* Same width as itemGlow */
+  height: 100%; /* Same height as itemGlow */
+  border-radius: 20px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  transform: translateX(100%);
+  opacity: 0;
+  transition: transform 0.5s ease, opacity 0.5s ease;
+}
+
+.itemWrapper:hover > * {
+  transform: scale(1.1);
+}
+.itemGlow, .item {
+  transition: transform 0.3s ease;
+}
+
+.itemWrapper.slideIn {
   transform: translateX(0);
   opacity: 1;
+}
+
+.itemGlow {
+  position: relative;
+  width: 256px;
+  height: 256px;
+  border-radius: inherit;
+  
+  background: conic-gradient(
+    from var(--gradient-angle),
+    #00bfff,
+    #3e84f2,
+    #fd5e53,
+    #fd8953,
+    #00bfff
+  );
+  animation: rotation 4s linear infinite;
+  z-index: 1;
+}
+.itemGlow::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: conic-gradient(from var(--gradient-angle), #00bfff, #3e84f2, #fd5e53, #fd8953, #00bfff);
+  animation: rotation 4s linear infinite;
+  filter: blur(1rem);
+  z-index: 0;
+}
+
+.item {
+  position: absolute;
+  inset: 3px;
+  width: 250px;
+  height: 250px;
+  border-radius: inherit;
+  background-color: #191919;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+}
+
+@property --gradient-angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+} /* All three of these properties are needed or property won't register */
+
+@keyframes rotation {
+  0% { --gradient-angle: 0deg; }
+  100% { --gradient-angle: 360deg; }
+}
+
+.projectDescription {
+  border-top: 2px solid;
+  border-image: linear-gradient(90deg, #00bfff, #3e84f2, #fd5e53, #fd8953) 1;
+  padding: 1rem;
+
+  opacity: 0;
+  transform: translateY(50px);
+  transition: transform 0.5s ease, opacity 1s ease;
+}
+.projectDescription.reveal {
+  opacity: 1;
+  transform: translateY(0);
 }

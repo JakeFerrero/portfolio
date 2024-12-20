@@ -1,35 +1,91 @@
 import { useEffect } from 'react';
+import ProjectCard from './ProjectCard';
 import style from './projects.module.css';
 
 export default function Projects() {
   useEffect(() => {
-    const projects = document.querySelectorAll(`.${style.card}`);
-    const projectContainers = document.querySelectorAll(`.${style.cardContainer}`);
+    const wrappers = document.querySelectorAll(`.${style.itemWrapper}`);
+    const descriptions = document.querySelectorAll(`.${style.projectDescription}`);
 
-    const projectObserver = new IntersectionObserver(
+    function slideInItemsSequentially() {
+      wrappers.forEach((wrapper, index) => {
+        setTimeout(() => {
+          wrapper.classList.add(`${style.slideIn}`);
+        }, index * 250);
+      });
+    }
+
+    function slideOutItemsSequentially() {
+      wrappers.forEach((wrapper, index) => {
+        const reverseIndex = wrappers.length - 1 - index;
+        setTimeout(() => {
+          wrapper.classList.remove(`${style.slideIn}`);
+        }, reverseIndex * 250);
+      });
+    }
+
+    let gridHasCrossed = false;
+    let projectAnimationHasFinished = false;
+
+    const observer = new IntersectionObserver(
       (entries) => {
-        entries.forEach((entry, index) => {
+        entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            setTimeout(() => {
-              entry.target.classList.add(`${style.slideIn}`);
-            }, index * 250);
-            projectObserver.unobserve(entry.target); // Stop observing once the animation has run
-
-            // Add .before-visible after the slide-in animation is done
-            setTimeout(() => {
-              projectContainers.forEach((container) => {
-                container.classList.add(`${style.beforeVisible}`);
-              });
-            }, 1000); // Delay to match the slide-in duration
+            if (!gridHasCrossed) {
+              slideInItemsSequentially();
+              gridHasCrossed = true;
+              setTimeout(() => {
+                projectAnimationHasFinished = true;
+              }, 1000);
+            }
+          } else {
+            const isScrollingUp = entry.boundingClientRect.top > 0;
+            if (isScrollingUp) {
+              slideOutItemsSequentially();
+              gridHasCrossed = false;
+              projectAnimationHasFinished = false;
+            }
           }
         });
       },
-      {
-        threshold: 0.5
-      }
+      { threshold: 0.9 }
     );
 
-    projects.forEach((project) => projectObserver.observe(project));
+    let descGridHasCrossed = false;
+
+    const descriptionGridObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            if (!descGridHasCrossed) {
+              descGridHasCrossed = true;
+              setTimeout(
+                () => {
+                  descriptions.forEach((description) => {
+                    description.classList.add(`${style.reveal}`);
+                  });
+                },
+                projectAnimationHasFinished ? 0 : 800
+              );
+            }
+          } else {
+            const isScrollingUp = entry.boundingClientRect.top > 0;
+            if (isScrollingUp) {
+              descriptions.forEach((description) => {
+                description.classList.remove(`${style.reveal}`);
+              });
+              descGridHasCrossed = false;
+            }
+          }
+        });
+      },
+      { threshold: 0.8 }
+    );
+
+    const grid = document.querySelector(`.${style.grid}`);
+    observer.observe(grid!);
+    const descGrid = document.querySelector(`.${style.descriptionGrid}`);
+    descriptionGridObserver.observe(descGrid!);
   });
 
   return (
@@ -39,20 +95,37 @@ export default function Projects() {
           <span>Projects</span>
         </h1>
       </div>
-      <p>
+      <p style={{ marginBottom: '2rem' }}>
         Feel free to explore a variety of projects I&apos;ve worked on by visiting my{' '}
         <a href="https://github.com/JakeFerrero">GitHub</a> page. Highlighted below are a few recent ones that I&apos;m
         particularly proud of.
       </p>
-      <div className={style.projectsGrid}>
-        <div className={style.cardContainer}>
-          <div className={`${style.card} ${style.card1}`}></div>
+
+      <div className={style.gridContainer}>
+        <div className={style.grid}>
+          <ProjectCard />
+          <ProjectCard />
+          <ProjectCard />
         </div>
-        <div className={style.cardContainer}>
-          <div className={`${style.card} ${style.card2}`}></div>
-        </div>
-        <div className={style.cardContainer}>
-          <div className={`${style.card} ${style.card3}`}></div>
+        <div className={style.descriptionGrid}>
+          <div className={style.projectDescription}>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+              dolore magna aliqua.
+            </p>
+          </div>
+          <div className={style.projectDescription}>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+              dolore magna aliqua.
+            </p>
+          </div>
+          <div className={style.projectDescription}>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+              dolore magna aliqua.
+            </p>
+          </div>
         </div>
       </div>
     </>

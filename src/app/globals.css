@@ -106,11 +106,6 @@ h4 {
   background-color: #303030;
 }
 
-#projects .contentContainer {
-  justify-content: unset;
-  gap: 50px;
-}
-
 #contact {
   background-color: #353535;
 }
