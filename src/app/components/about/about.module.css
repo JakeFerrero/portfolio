@@ -7,8 +7,8 @@
 
   animation: scrollHighlight linear forwards;
   animation-timeline: view();
-  animation-range-start: cover 10%;
-  animation-range-end: cover 50%;
+  animation-range-start: cover 15%;
+  animation-range-end: cover 55%;
 }
 
 @keyframes scrollHighlight {
@@ -29,6 +29,7 @@
     'ui leadership edu';
 
   width: 100%;
+  padding: 0 20px;
 }
 
 @media only screen and (max-width: 1000px) {
@@ -39,7 +40,7 @@
       'ui leadership'
       'edu edu';
 
-    max-width: 800px;
+    max-width: 700px;
   }
 }
 

@@ -91,8 +91,8 @@ export default function Projects() {
   return (
     <>
       <div className="sectionTitle">
-        <h1>
-          <span>Projects</span>
+        <h1 className="glow-text" data-content="Projects">
+          Projects
         </h1>
       </div>
       <p style={{ marginBottom: '2rem' }}>

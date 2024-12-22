@@ -86,21 +86,23 @@ export default function About() {
   return (
     <>
       <div className="sectionTitle">
-        <h1>
-          <span>About Me</span>
+        <h1 className="glow-text" data-content="About Me">
+          About Me
         </h1>
       </div>
       <div className={style.description}>
         <span>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-          magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-          consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
-          est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-          labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore
-          eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
-          mollit anim id est laborum.
+          I'm a Software Developer with 6 years of experience, specializing in Node.js and Typescript. I have a history
+          of developing cloud-based microservices and RESTful APIs that prioritize high availability and millisecond
+          response times. I thrive on solving complex problems and delivering scalable, high-quality solutions.
+          <div style={{ height: '1rem' }} />
+          Recently I've expanded my expertise to frontend development, with a focus on mastering React.js, CSS, and
+          refining my understanding of frontend design principles and best practices. In the past year, I've developed
+          multiple web applications, both personally and professionally, deepening my understanding of modern frontend
+          technologies and user-centric design.
+          <div style={{ height: '1rem' }} />I have a passion for clean code, as well as developing high-quality software
+          with the customer in mind, focusing on creating intuitive, efficient solutions that address their needs and
+          drive meaningful results.
         </span>
       </div>
       {/* ----- GRID ----- */}
@@ -147,7 +149,9 @@ export default function About() {
         </div>
         <div className={style.item} id={style.edu}>
           <h4>Education</h4>
-          <span className='proper-name' style={{ color: 'red' }}>NC State University</span>
+          <span className="proper-name" style={{ color: 'red' }}>
+            NC State University
+          </span>
           <span>
             <span style={{ fontSize: '1.3rem', color: 'grey' }}>Raleigh, North Carolina</span> <span>2013 - 2018</span>
           </span>

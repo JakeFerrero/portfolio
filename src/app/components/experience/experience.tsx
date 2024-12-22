@@ -36,8 +36,8 @@ export default function Experience() {
   return (
     <>
       <div className="sectionTitle">
-        <h1>
-          <span>Experience</span>
+      <h1 className="glow-text" data-content="Experience">
+          Experience
         </h1>
       </div>
       <div className={style.subsection}>
