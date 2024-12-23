@@ -95,12 +95,6 @@ export default function Projects() {
           Projects
         </h1>
       </div>
-      <p style={{ marginBottom: '2rem' }}>
-        Feel free to explore a variety of projects I&apos;ve worked on by visiting my{' '}
-        <a href="https://github.com/JakeFerrero">GitHub</a> page. Highlighted below are a few recent ones that I&apos;m
-        particularly proud of.
-      </p>
-
       <div className={style.gridContainer}>
         <div className={style.grid}>
           <ProjectCard />
@@ -127,6 +121,12 @@ export default function Projects() {
             </p>
           </div>
         </div>
+      </div>
+
+      <div style={{width: '100%', textAlign: 'right', marginBottom: '32px'}}>
+        <p className="small-text">
+          Feel free to explore all my projects on <a href="https://github.com/JakeFerrero">GitHub</a>.
+        </p>
       </div>
     </>
   );

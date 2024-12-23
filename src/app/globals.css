@@ -103,8 +103,8 @@ section {
   height: 100vh;
   width: 100vw;
   
-  /* section titles use h2, which is 56px */
-  padding: calc(2rem + 56px + 2rem) 2rem 2rem 2rem;
+  /* section titles use h2, whose line height is 60px */
+  padding: calc(2rem + 60px + 2rem) 2rem 2rem 2rem;
 
   position: relative;
 }

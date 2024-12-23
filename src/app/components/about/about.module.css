@@ -29,10 +29,9 @@
     'ui leadership edu';
 
   width: 100%;
-  padding: 0 20px;
 }
 
-@media only screen and (max-width: 1000px) {
+@media only screen and (max-width: 950px) {
   .grid {
     grid-template-columns: 1fr 1fr;
     grid-template-areas:
@@ -44,30 +43,77 @@
   }
 }
 
+.item h4 {
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
 #exp {
   grid-area: exp;
+}
+
+#exp h4 {
+  width: fit-content;
+  background: linear-gradient(90deg, #00bfff, #3e84f2);
+  background-clip: text;
+  color: transparent;
 }
 
 #aws {
   grid-area: aws;
 }
 
+#aws h4 {
+  width: fit-content;
+  background: linear-gradient(90deg, #FF9900, #FFB84D);
+  background-clip: text;
+  color: transparent;
+}
+
 #ui {
   grid-area: ui;
 }
+
+#ui h4 {
+  width: fit-content;
+  background: linear-gradient(90deg, #fd5e53, #fd8953);
+  background-clip: text;
+  color: transparent;
+}
+
+#exp h4, #ui h4 {
+  margin-bottom: .5rem;
+}
+
 
 #leadership {
   grid-area: leadership;
 }
 
+#leadership h4 {
+  width: fit-content;
+  background: linear-gradient(90deg, rgb(53, 169, 138) 0%, rgb(109, 212, 0));
+  background-clip: text;
+  color: transparent;
+}
+
 #edu {
   grid-area: edu;
+  justify-content: flex-start;
+}
+
+#edu h4 {
+  width: fit-content;
+  background: linear-gradient(90deg, #9D4EDD, #D186F5);
+  font-weight: 600;
+  background-clip: text;
+  color: transparent;
 }
 
 .item {
   background-color: #353535;
   border-radius: 1rem;
-  padding: 1rem;
+  padding: 20px;
 
   font-size: 1rem;
 
@@ -90,6 +136,12 @@
   border-left: 2px solid;
   border-image: linear-gradient(to bottom, #00bfff, #3e84f2, #fd5e53, #fd8953) 1;
   padding-left: 10px;
+
+  /* Same as small-text */
+  font-size: 17px;
+  font-weight: 600;
+  font-style: normal;
+  line-height: 21px;
 }
 
 .item p {
@@ -103,14 +155,48 @@
   margin: 0;
   position: relative;
 }
-#edu ul {
-  list-style-type: disc;
-  padding-left: 1rem;
-}
 
 .item li {
   line-height: 1.5rem;
 }
+
+/* ----- Revealing Text ----- */
+
+.coverContainer {
+  display: block;
+  position: relative;
+  width: fit-content;
+}
+
+.cover {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 0;
+  background: white;
+  z-index: 10;
+}
+
+.cover.animate {
+  animation: reveal ease-in-out 1s;
+}
+
+@keyframes reveal {
+  0% {
+    width: 0;
+    left: 0;
+  }
+  50% {
+    width: 100%;
+    left: 0;
+  }
+  100% {
+    width: 0;
+    left: 100%;
+  }
+}
+
 
 
 /* ----- Hobbies ----- */
@@ -142,9 +228,15 @@
   justify-content: start;
   height: 100%;
 
-  padding: 2rem;
+  padding-top: 36px;
 }
 
 #hobbyDetails > * {
   margin: 1rem 0;
+}
+
+@media only screen and (max-width: 950px) {
+  .hobbyContainer {
+    flex-direction: column;
+  }
 }

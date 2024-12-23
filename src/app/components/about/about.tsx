@@ -8,6 +8,7 @@ export default function About() {
     const items = document.querySelectorAll(`.${style.item}`);
     const grid = document.querySelector(`.${style.grid}`);
     const hobbies = document.querySelector(`.${style.hobbyContainer}`);
+    const cover = document.querySelector(`.${style.cover}`);
 
     function revealItemsSequentially() {
       items.forEach((child, index) => {
@@ -62,6 +63,7 @@ export default function About() {
           if (entry.isIntersecting) {
             if (!hobbiesHasCrossed) {
               entry.target.classList.add(`${style.show}`);
+              cover!.classList.add(`${style.animate}`);
               hobbiesHasCrossed = true; // Lock the state
             }
           } else {
@@ -69,6 +71,7 @@ export default function About() {
             const isScrollingUp = entry.boundingClientRect.top > 0;
             if (isScrollingUp) {
               entry.target.classList.remove(`${style.show}`);
+              cover!.classList.remove(`${style.animate}`);
               hobbiesHasCrossed = false; // Unlock the state
             }
           }
@@ -85,6 +88,7 @@ export default function About() {
 
   return (
     <>
+      {/* TODO: make a util component */}
       <div className="sectionTitle">
         <h1 className="glow-text" data-content="About Me">
           About Me
@@ -94,22 +98,18 @@ export default function About() {
         <span>
           I'm a Software Developer with 6 years of experience, specializing in Node.js and Typescript. I have a history
           of developing cloud-based microservices and RESTful APIs that prioritize high availability and millisecond
-          response times. I thrive on solving complex problems and delivering scalable, high-quality solutions.
-          <div style={{ height: '1rem' }} />
-          Recently I've expanded my expertise to frontend development, with a focus on mastering React.js, CSS, and
-          refining my understanding of frontend design principles and best practices. In the past year, I've developed
-          multiple web applications, both personally and professionally, deepening my understanding of modern frontend
-          technologies and user-centric design.
-          <div style={{ height: '1rem' }} />I have a passion for clean code, as well as developing high-quality software
-          with the customer in mind, focusing on creating intuitive, efficient solutions that address their needs and
-          drive meaningful results.
+          response times. Recently I've expanded my expertise to frontend development, with a focus on mastering
+          React.js, CSS, and refining my understanding of frontend design principles and best practices. I&apos;m
+          passionate about writing clean code and developing high-quality software with the customer in mind. My focus
+          is on creating intuitive, efficient solutions that address customer needs and drive meaningful results. I
+          thrive on solving complex problems and delivering scalable, impactful solutions.
         </span>
       </div>
-      {/* ----- GRID ----- */}
+      {/* ----- GRID ----- TODO: move to its own component */}
       <div className={style.grid}>
         <div className={style.item} id={style.exp}>
           <h4>
-            5 Years
+            6 Years
             <br />
             Experience
           </h4>
@@ -124,7 +124,7 @@ export default function About() {
         <div className={style.item} id={style.aws}>
           <h4>AWS</h4>
           <div className={style.itemText}>
-            <p>5 years of experience developing scalable microservices leveraging AWS</p>
+            <p>Over 5 years of experience developing scalable microservices leveraging AWS</p>
           </div>
         </div>
         <div className={style.item} id={style.ui}>
@@ -165,13 +165,17 @@ export default function About() {
       {/* ----- HOBBY ----- */}
       <div className={style.hobbyContainer}>
         <div id={style.hobbyDetails}>
-          <h3>Hobbies & Interests</h3>
+          <div className={style.coverContainer}>
+            <h3>Hobbies & Interests</h3>
+            <div className={style.cover} />
+          </div>
           <span>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-            dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
-            ea commodo consequat.
+            In my spare time, I enjoy playing video games, spending time with friends and family, and improving my
+            Japanese. I studied Japanese for four years in college and spent a semester abroad in Tokyo, which deepened
+            my appreciation for the culture. I am passionate about the language and culture, and I try to visit as often
+            as I can.
           </span>
-          <span>日本語のquote</span>
+          <span>日本や他の趣味について話すのが好きなので、連絡して遠慮しないでよ！</span>
         </div>
         <div id={style.hobbyPic}>
           <Image src={pic} alt="japan_pic" width={3024 * 0.14} height={4032 * 0.14} style={{ borderRadius: '5%' }} />
