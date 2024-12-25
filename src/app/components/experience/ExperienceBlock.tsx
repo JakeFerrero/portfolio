@@ -1,3 +1,4 @@
+import Timeframe from '../utils/Timeframe';
 import style from './ExperienceBlock.module.css';
 
 interface Props {
@@ -14,13 +15,17 @@ export default function ExperienceBlock({ color, titles, company, bulletPoints, 
   for (let i = 0; i < titles.length; i++) {
     rows.push(
       <div key={i}>
-        <p style={{ fontWeight: 'bold' }}>{titles[i]}</p>
-        <p>
-          {startDates[i]} - {endDates?.[i] ?? 'Current'}
-        </p>
+        <h4>{titles[i]}</h4>
+        <div style={{ marginBottom: '8px' }}>
+          <Timeframe timeframe={`${startDates[i]} - ${endDates?.[i] ?? 'Current'}`} />
+        </div>
         <ul className={style.expList}>
           {bulletPoints[i].map((point, index) => {
-            return <li key={index}>{point}</li>;
+            return (
+              <li className="small-text" key={index} style={{ fontWeight: 400 }}>
+                {point}
+              </li>
+            );
           })}
         </ul>
       </div>
@@ -32,7 +37,9 @@ export default function ExperienceBlock({ color, titles, company, bulletPoints, 
       <div className={style.expIcon}>
         <i className="bi bi-briefcase-fill" style={{ fontSize: '24px' }}></i>
       </div>
-      <h3 style={{ color: `${color}` }}>{company}</h3>
+      <h3 className={`proper-name`} style={{ color: color }}>
+        {company}
+      </h3>
       {rows}
     </div>
   );

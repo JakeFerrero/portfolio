@@ -5,7 +5,7 @@ import style from './experience.module.css';
 export default function Experience() {
   useEffect(() => {
     const subsections = document.querySelectorAll(`.${style.subsection}`);
-    
+
     const subSectionObserver = new IntersectionObserver(
       (entries) => {
         let hasCrossed = false;
@@ -26,7 +26,7 @@ export default function Experience() {
         });
       },
       {
-        threshold: 0.5
+        threshold: [.4]
       }
     );
 
@@ -36,19 +36,19 @@ export default function Experience() {
   return (
     <>
       <div className="sectionTitle">
-      <h1 className="glow-text" data-content="Experience">
+        <h2 className="glow-text" data-content="Experience">
           Experience
-        </h1>
+        </h2>
       </div>
       <div className={style.subsection}>
         <ExperienceBlock
           company="HubSpot"
-          color="orange"
+          color="#ff5c36"
           titles={['Senior Software Engineer']}
           startDates={['May 2024']}
           bulletPoints={[
             [
-              'Frontend developer working on the Application Lists team'
+              'Frontend Engineer on the Application Lists team, focusing on building and optimizing user-facing features'
             ]
           ]}
         />
@@ -57,9 +57,9 @@ export default function Experience() {
         <ExperienceBlock
           company="JupiterOne"
           color="#02bea5"
-          titles={['Software Engineer', 'Technical Lead']}
-          startDates={['April 2022', 'December 2023']}
-          endDates={['December 2023', 'May 2024']}
+          titles={['Technical Lead', 'Software Engineer']}
+          startDates={['December 2023', 'April 2022']}
+          endDates={['May 2024', 'December 2023']}
           bulletPoints={[
             [
               "Led a team of engineers in developing and maintaining the company's most profitable integration",
@@ -95,7 +95,7 @@ export default function Experience() {
       <div className={style.subsection}>
         <ExperienceBlock
           company="Oracle"
-          color="red"
+          color="#e41c1f"
           titles={['Cloud Developer Co-op']}
           startDates={['May 2016']}
           endDates={['December 2016']}

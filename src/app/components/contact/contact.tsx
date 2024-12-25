@@ -6,9 +6,9 @@ export default function Contact() {
   return (
     <>
       <div className="sectionTitle">
-        <h1 className="glow-text" data-content="Contact Me">
+        <h2 className="glow-text" data-content="Contact Me">
           Contact Me
-        </h1>
+        </h2>
       </div>
       <div className={style.container}>
         <div className={style.grid}>

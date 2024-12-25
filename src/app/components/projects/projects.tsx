@@ -91,9 +91,9 @@ export default function Projects() {
   return (
     <>
       <div className="sectionTitle">
-        <h1 className="glow-text" data-content="Projects">
+        <h2 className="glow-text" data-content="Projects">
           Projects
-        </h1>
+        </h2>
       </div>
       <div className={style.gridContainer}>
         <div className={style.grid}>

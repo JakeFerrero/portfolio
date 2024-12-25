@@ -4,6 +4,7 @@
 
 html {
   scroll-behavior: smooth;
+  font-size: 21px; /* To set rem */
 }
 
 body {  
@@ -39,7 +40,6 @@ h3, .proper-name {
   font-size: 40px;
   font-style: normal;
   line-height: 44px;
-  letter-spacing: normal;
 }
 h4 {
   font-size: 28px;
@@ -104,7 +104,7 @@ section {
   width: 100vw;
   
   /* section titles use h2, whose line height is 60px */
-  padding: calc(2rem + 60px + 2rem) 2rem 2rem 2rem;
+  padding: calc(40px + 60px + 40px) 40px 40px 40px;
 
   position: relative;
 }
@@ -112,7 +112,7 @@ section {
 .sectionTitle {
   /* Anchor the section title to the top of the section */
   position: absolute;
-  top: 2rem;
+  top: 40px;
 }
 
 .contentContainer {
@@ -132,7 +132,7 @@ section {
 /* ---------- Individual Sections ---------- */
 
 #home {
-  padding: 2rem;
+  padding: 40px;
 }
 
 #home .contentContainer {

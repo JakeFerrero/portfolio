@@ -90,9 +90,9 @@ export default function About() {
     <>
       {/* TODO: make a util component */}
       <div className="sectionTitle">
-        <h1 className="glow-text" data-content="About Me">
+        <h2 className="glow-text" data-content="About Me">
           About Me
-        </h1>
+        </h2>
       </div>
       <div className={style.description}>
         <span>

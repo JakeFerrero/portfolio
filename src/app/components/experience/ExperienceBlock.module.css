@@ -1,37 +1,45 @@
 .exp {
+  width: 100%;
+
+  padding-left: 35px;
+  text-align: left;
+
   border-left: 2px solid;
   border-image: linear-gradient(to bottom, #00bfff, #3e84f2, #fd5e53, #fd8953) 1;
-  padding-left: 2rem;
-  position: relative;
-  text-align: left;
-  width: 100%;
-}
-.exp::before {
-  content: '';
-  background-color: #353535;
-  border-radius: 50%;
-  width: 3rem;
-  height: 3rem;
-  position: absolute;
-  top: -0.5rem;
-  left: -25px;
-}
 
-.exp p {
-  margin: 1rem 0;
+  position: relative;
 }
 
 .expIcon {
   position: absolute;
-  top: 0px;
-  left: -12px;
+  top: -5px;
+  left: -25px;
+
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+
+  background-color: #353535;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.exp h4 {
+  margin: 10px 0;
+  font-weight: 400;
+}
+
+.exp h4 {
+  color: #b0b0b0;
 }
 
 .expList {
-  padding-left: 1rem;
+  padding-left: 17px;
   margin: 0;
 }
 
 .expList li {
-  line-height: 2rem;
+  line-height: 32px;
 }
