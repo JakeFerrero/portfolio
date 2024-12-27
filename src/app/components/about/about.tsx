@@ -2,7 +2,7 @@ import Image from 'next/image';
 import { useEffect } from 'react';
 import pic from '../../images/japan_portfolio_pic.jpeg';
 // import Timeframe from '../utils/Timeframe';
-import Education from '../projects/Education';
+import Education from '../utils/Education';
 import style from './about.module.css';
 
 export default function About() {
