@@ -45,7 +45,7 @@ export default function Experience() {
           company="HubSpot"
           color="#ff5c36"
           titles={['Senior Software Engineer']}
-          startDates={['May 2024']}
+          startDates={['December 2024']}
           bulletPoints={[
             [
               'Frontend Engineer on the Application Lists team, focusing on building and optimizing user-facing features'

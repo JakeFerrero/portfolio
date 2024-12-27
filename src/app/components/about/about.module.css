@@ -44,7 +44,7 @@
 }
 
 .item h4 {
-  margin-bottom: 1rem;
+  margin-bottom: 8px;
   font-weight: 600;
 }
 
@@ -81,10 +81,6 @@
   color: transparent;
 }
 
-#exp h4, #ui h4 {
-  margin-bottom: .5rem;
-}
-
 
 #leadership {
   grid-area: leadership;
@@ -100,6 +96,7 @@
 #edu {
   grid-area: edu;
   justify-content: flex-start;
+  padding: 20px 40px;
 }
 
 #edu h4 {
@@ -111,7 +108,7 @@
 }
 
 .item {
-  background-color: #353535;
+  background-color: #232323;
   border-radius: 1rem;
   padding: 20px;
 
@@ -133,15 +130,13 @@
 }
 
 .itemText {
-  border-left: 2px solid;
-  border-image: linear-gradient(to bottom, #00bfff, #3e84f2, #fd5e53, #fd8953) 1;
-  padding-left: 10px;
-
   /* Same as small-text */
   font-size: 17px;
   font-weight: 600;
   font-style: normal;
-  line-height: 21px;
+
+  /* Unique for better spacing inside containers */
+  line-height: 26px;
 }
 
 .item p {
@@ -154,10 +149,6 @@
   padding-left: 0;
   margin: 0;
   position: relative;
-}
-
-.item li {
-  line-height: 1.5rem;
 }
 
 /* ----- Revealing Text ----- */
@@ -214,6 +205,16 @@
 .hobbyContainer.show {
   opacity: 1;
   transform: translateY(0);
+}
+
+.hobbyContainer h3 {
+  opacity: 0;
+  transition: opacity .01s;
+  transition-delay: .5s;
+}
+
+.hobbyContainer.show h3 {
+  opacity: 1;
 }
 
 #hobbyPic {

@@ -1,6 +1,8 @@
 import Image from 'next/image';
 import { useEffect } from 'react';
 import pic from '../../images/japan_portfolio_pic.jpeg';
+// import Timeframe from '../utils/Timeframe';
+import Education from '../projects/Education';
 import style from './about.module.css';
 
 export default function About() {
@@ -78,7 +80,7 @@ export default function About() {
         });
       },
       {
-        threshold: 0.33
+        threshold: 0.4
       }
     );
 
@@ -96,13 +98,13 @@ export default function About() {
       </div>
       <div className={style.description}>
         <span>
-          I'm a Software Developer with 6 years of experience, specializing in Node.js and Typescript. I have a history
-          of developing cloud-based microservices and RESTful APIs that prioritize high availability and millisecond
-          response times. Recently I've expanded my expertise to frontend development, with a focus on mastering
-          React.js, CSS, and refining my understanding of frontend design principles and best practices. I&apos;m
-          passionate about writing clean code and developing high-quality software with the customer in mind. My focus
-          is on creating intuitive, efficient solutions that address customer needs and drive meaningful results. I
-          thrive on solving complex problems and delivering scalable, impactful solutions.
+          I&apos;m a Software Developer with 6 years of experience, specializing in Node.js and Typescript. I have a
+          history of developing cloud-based microservices and RESTful APIs that prioritize high availability and
+          millisecond response times. Recently I&apos;ve expanded my expertise to frontend development, with a focus on
+          mastering React.js, CSS, and refining my understanding of frontend design principles and best practices.
+          I&apos;m passionate about writing clean code and developing high-quality software with the customer in mind.
+          My focus is on creating intuitive, efficient solutions that address customer needs and drive meaningful
+          results. I thrive on solving complex problems and delivering scalable, impactful solutions.
         </span>
       </div>
       {/* ----- GRID ----- TODO: move to its own component */}
@@ -149,17 +151,23 @@ export default function About() {
         </div>
         <div className={style.item} id={style.edu}>
           <h4>Education</h4>
-          <span className="proper-name" style={{ color: 'red' }}>
-            NC State University
-          </span>
-          <span>
-            <span style={{ fontSize: '1.3rem', color: 'grey' }}>Raleigh, North Carolina</span> <span>2013 - 2018</span>
-          </span>
-          <span>Bachelor&apos;s Degree, Computer Science</span>
-          <h3 style={{ color: 'maroon' }}>Sophia University</h3>
-          <span>
-            <span style={{ fontSize: '1.3rem', color: 'grey' }}>Tokyo, Japan</span> <span>2018</span>
-          </span>
+          <Education
+            school="NC State University"
+            color="red"
+            location="Raleigh, NC"
+            text="Bachelor's Degree, Computer Science"
+            startDate="August 2013"
+            endDate="December 2018"
+          />
+          <div style={{ padding: '16px' }} />
+          <Education
+            school="Sophia University"
+            color="maroon"
+            location="Tokyo, Japan"
+            text="Minor, Japanese"
+            startDate="June 2018"
+            endDate="July 2018"
+          />
         </div>
       </div>
       {/* ----- HOBBY ----- */}

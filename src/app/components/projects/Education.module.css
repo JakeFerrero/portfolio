@@ -1,4 +1,4 @@
-.exp {
+.edu {
   width: 100%;
 
   padding-left: 35px;
@@ -10,7 +10,7 @@
   position: relative;
 }
 
-.expIcon {
+.eduIcon {
   position: absolute;
   top: 0;
   left: -21px;
@@ -26,20 +26,8 @@
   align-items: center;
 }
 
-.exp h4 {
-  margin: 10px 0;
+.location {
+  margin-bottom: 6px;
   font-weight: 400;
-}
-
-.exp h4 {
   color: #b0b0b0;
-}
-
-.expList {
-  padding-left: 17px;
-  margin: 0;
-}
-
-.expList li {
-  line-height: 32px;
 }

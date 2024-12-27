@@ -35,7 +35,7 @@ export default function ExperienceBlock({ color, titles, company, bulletPoints, 
   return (
     <div className={style.exp}>
       <div className={style.expIcon}>
-        <i className="bi bi-briefcase-fill" style={{ fontSize: '24px' }}></i>
+        <i className="bi bi-briefcase-fill" style={{ fontSize: '20px' }}></i>
       </div>
       <h3 className={`proper-name`} style={{ color: color }}>
         {company}
