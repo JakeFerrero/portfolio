@@ -26,7 +26,7 @@ export default function Experience() {
         });
       },
       {
-        threshold: [.4]
+        threshold: [0.4]
       }
     );
 
@@ -95,7 +95,7 @@ export default function Experience() {
       <div className={style.subsection}>
         <ExperienceBlock
           company="Oracle"
-          color="#e41c1f"
+          color="#C74634"
           titles={['Cloud Developer Co-op']}
           startDates={['May 2016']}
           endDates={['December 2016']}

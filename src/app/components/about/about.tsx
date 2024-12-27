@@ -2,7 +2,7 @@ import Image from 'next/image';
 import { useEffect } from 'react';
 import pic from '../../images/japan_portfolio_pic.jpeg';
 // import Timeframe from '../utils/Timeframe';
-import Education from '../utils/Education';
+import Education from './Education';
 import style from './about.module.css';
 
 export default function About() {
@@ -153,7 +153,7 @@ export default function About() {
           <h4>Education</h4>
           <Education
             school="NC State University"
-            color="red"
+            color="#CC0000"
             location="Raleigh, NC"
             text="Bachelor's Degree, Computer Science"
             startDate="August 2013"
@@ -162,7 +162,7 @@ export default function About() {
           <div style={{ padding: '16px' }} />
           <Education
             school="Sophia University"
-            color="maroon"
+            color="#9a013d"
             location="Tokyo, Japan"
             text="Minor, Japanese"
             startDate="June 2018"

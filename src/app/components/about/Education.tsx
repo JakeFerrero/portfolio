@@ -1,5 +1,5 @@
+import Timeframe from '../utils/Timeframe';
 import style from './Education.module.css';
-import Timeframe from './Timeframe';
 
 interface Props {
   school: string;
