@@ -82,20 +82,23 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 2rem;
+  gap: 42px;
 
   flex: 1;
+  width: 100%;
 }
 
 .grid, .descriptionGrid {
   display: grid;
-  gap: 2rem 50px;
+  gap: 64px;
   grid-template-columns: 256px 256px 256px;
+  justify-content: space-evenly;
+  width: 100%;
 }
 
 .itemWrapper {
-  width: 100%; /* Same width as itemGlow */
-  height: 100%; /* Same height as itemGlow */
+  width: 100%;
+  height: 100%;
   border-radius: 20px;
 
   display: flex;
@@ -105,6 +108,11 @@
   transform: translateX(100%);
   opacity: 0;
   transition: transform 0.5s ease, opacity 0.5s ease;
+}
+
+.itemWrapper a {
+  border-radius: inherit;
+  text-decoration: none;
 }
 
 .itemWrapper:hover > * {
@@ -153,11 +161,24 @@
   width: 250px;
   height: 250px;
   border-radius: inherit;
+
+  padding: 16px;
+  
   background-color: #191919;
+  color: white;
+  
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: space-between;
   align-items: center;
+  
   z-index: 2;
+}
+
+.item h3 {
+  background: linear-gradient(90deg, #00bfff, #3e84f2, #fd5e53, #fd8953);
+  background-clip: text;
+  color: transparent;
 }
 
 @property --gradient-angle {
@@ -171,10 +192,20 @@
   100% { --gradient-angle: 360deg; }
 }
 
+.icons {
+  width: 100%;
+  text-align: left;
+}
+
+.github {
+  width: 100%;
+  text-align: right;
+}
+
 .projectDescription {
   border-top: 2px solid;
   border-image: linear-gradient(90deg, #00bfff, #3e84f2, #fd5e53, #fd8953) 1;
-  padding: 1rem;
+  padding: 10px;
 
   opacity: 0;
   transform: translateY(50px);
@@ -183,4 +214,18 @@
 .projectDescription.reveal {
   opacity: 1;
   transform: translateY(0);
+}
+
+.projectsBottom {
+  width: 100%;
+  text-align: right;
+}
+
+.projectsBottom span {
+  font-weight: 400;
+}
+
+.projectsBottom a {
+  color: #00bfff;
+  text-decoration: none;
 }

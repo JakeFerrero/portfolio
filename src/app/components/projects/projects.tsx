@@ -79,7 +79,7 @@ export default function Projects() {
           }
         });
       },
-      { threshold: 0.8 }
+      { threshold: 0.45 }
     );
 
     const grid = document.querySelector(`.${style.grid}`);
@@ -97,36 +97,48 @@ export default function Projects() {
       </div>
       <div className={style.gridContainer}>
         <div className={style.grid}>
-          <ProjectCard />
-          <ProjectCard />
-          <ProjectCard />
+          <ProjectCard
+            name="Portfolio"
+            link="https://github.com/JakeFerrero/portfolio"
+            tools={['Typescript', 'React', 'NextJS']}
+          />
+          <ProjectCard
+            name="Pokedex"
+            link="https://github.com/JakeFerrero/Pokedex"
+            tools={['Typescript', 'React', 'NextJS']}
+          />
+          <ProjectCard
+            name="Banking API"
+            link="https://github.com/JakeFerrero/banking-api"
+            tools={['Typescript', 'NodeJS']}
+          />
         </div>
         <div className={style.descriptionGrid}>
           <div className={style.projectDescription}>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-              dolore magna aliqua.
+            <p className="small-text" style={{ marginBottom: '8px', fontWeight: 400 }}>
+              A web app that simulates the functionality of a Pokedex. Built using NextJS and Typescript.
+              <br />
+              (WIP)
             </p>
           </div>
           <div className={style.projectDescription}>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-              dolore magna aliqua.
+            <p className="small-text" style={{ marginBottom: '8px', fontWeight: 400  }}>
+              A basic Banking API - written in Typescript and utilizing NestJS and sqlite - that simulates day-to-day
+              operations that a bank employee may use.
             </p>
           </div>
           <div className={style.projectDescription}>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-              dolore magna aliqua.
+            <p className="small-text" style={{ marginBottom: '8px', fontWeight: 400  }}>
+              Personal website and portfolio built using React, NextJS, and Typescript.
             </p>
           </div>
         </div>
       </div>
 
-      <div style={{width: '100%', textAlign: 'right', marginBottom: '32px'}}>
-        <p className="small-text">
+      <div className={style.projectsBottom}>
+        <span className="small-text">
           Feel free to explore all my projects on <a href="https://github.com/JakeFerrero">GitHub</a>.
-        </p>
+        </span>
       </div>
     </>
   );
