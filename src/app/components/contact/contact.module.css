@@ -4,6 +4,15 @@
   align-items: center;
   justify-content: space-between;
   gap: 2em;
+
+  opacity: 0;
+  transform: translateY(50px);
+  transition: transform 1s cubic-bezier(0, 0, 0.5, 1), opacity 1s cubic-bezier(0, 0, 0.5, 1);
+}
+
+.container.show {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .container p, .container h4 {
@@ -13,18 +22,18 @@
 .grid {
   flex: 1;
   display: grid;
-  row-gap: 1rem;
+  row-gap: 21px;
 }
 
 .formContainer {
   flex: 1;
 }
 
-.sideBySide {
+.links {
   display: flex;
   justify-content: center;
-  gap: 4rem;
-  margin-top: .5rem;
+  gap: 80px;
+  margin-top: 21px;
   z-index: 1;
 }
 
@@ -71,4 +80,57 @@
 @keyframes rotation {
   0% { --gradient-angle: 0deg; }
   100% { --gradient-angle: 360deg; }
+}
+
+/* ----- Text Cover ----- */
+
+.coverContainer {
+  display: block;
+  position: relative;
+  width: fit-content;
+}
+
+.cover {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 0;
+  background: white;
+  z-index: 10;
+}
+
+.cover.animate {
+  animation: reveal ease-in-out 1s;
+}
+
+@keyframes reveal {
+  0% {
+    width: 0;
+    left: 0;
+  }
+  50% {
+    width: 100%;
+    left: 0;
+  }
+  100% {
+    width: 0;
+    left: 100%;
+  }
+}
+
+.container h3 {
+  opacity: 0;
+  transition: opacity .01s;
+  transition-delay: .5s;
+}
+
+.container.show h3 {
+  opacity: 1;
+}
+
+.emailLocation {
+  display: flex;
+  justify-content: start;
+  position: relative;
 }
