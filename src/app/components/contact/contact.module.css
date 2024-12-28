@@ -1,9 +1,19 @@
+@media only screen and (max-width: 950px) {
+  .container {
+    flex-direction: column;
+  }
+
+  #contactPic {
+    display: none;
+  }
+}
+
 .container {
   display: flex;
   height: 100%;
   align-items: center;
   justify-content: space-between;
-  gap: 2em;
+  gap: 50px;
 
   opacity: 0;
   transform: translateY(50px);
@@ -21,12 +31,19 @@
 
 .grid {
   flex: 1;
-  display: grid;
-  row-gap: 21px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 20px;
+
+  padding: 20px;
 }
 
-.formContainer {
-  flex: 1;
+.emailLocation {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 20px;
 }
 
 .links {
@@ -38,6 +55,7 @@
 }
 
 /* ----- Button ----- */
+
 @property --gradient-angle {
   syntax: "<angle>";
   initial-value: 0deg;
@@ -127,10 +145,4 @@
 
 .container.show h3 {
   opacity: 1;
-}
-
-.emailLocation {
-  display: flex;
-  justify-content: start;
-  position: relative;
 }

@@ -1,7 +1,6 @@
 import Image from 'next/image';
 import { useEffect } from 'react';
 import pic from '../../images/japan_portfolio_pic.jpeg';
-// import Timeframe from '../utils/Timeframe';
 import Education from './Education';
 import style from './about.module.css';
 

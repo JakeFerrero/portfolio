@@ -1,6 +1,7 @@
+import Image from 'next/image';
 import { useEffect } from 'react';
+import pic from '../../images/tokyo_temple_selfie.png';
 import style from './contact.module.css';
-import ContactForm from './ContactForm';
 
 export default function Contact() {
   useEffect(() => {
@@ -59,7 +60,7 @@ export default function Contact() {
               <h4 style={{ color: 'grey' }}>Email</h4>
               <p style={{ fontWeight: 400 }}>jake.a.ferrero@gmail.com</p>
             </div>
-            <div style={{ position: 'absolute', left: '50%' }}>
+            <div>
               <h4 style={{ color: 'grey' }}>Location</h4>
               <p style={{ fontWeight: 400 }}>Morrisville, NC</p>
             </div>
@@ -82,9 +83,14 @@ export default function Contact() {
             </a>
           </div>
         </div>
-        <div className={style.formContainer}>
-          <ContactForm />
-        </div>
+        <Image
+          id={style.contactPic}
+          src={pic}
+          alt="contact-pic"
+          width={3024 * 0.14}
+          height={3780 * 0.14}
+          style={{ borderRadius: '5%' }}
+        />
       </div>
     </>
   );
