@@ -34,21 +34,21 @@ export default function ProjectCard({ name, tools, link }: Props) {
   }
 
   return (
-    <div className={style.itemWrapper}>
-      <div className={style.itemGlow}>
-        <a href={link} role="button">
-          <div className={style.item}>
-            <div className={style.icons}>{toolIcons}</div>
-            <h3>{name}</h3>
-            <div className={style.github}>
-              <span className="small-text" style={{ fontWeight: 400 }}>
-                View on GitHub&nbsp;
-                <Image key="github" src={githubIcon} alt="GitHub" width={24} height={24} />
-              </span>
+      <div className={style.itemWrapper}>
+        <div className={style.itemGlow}>
+          <a href={link} role="button">
+            <div className={style.item}>
+              <div className={style.icons}>{toolIcons}</div>
+              <h3>{name}</h3>
+              <div className={style.github}>
+                <span className="small-text" style={{ fontWeight: 400 }}>
+                  View on GitHub&nbsp;
+                  <Image key="github" src={githubIcon} alt="GitHub" width={24} height={24} />
+                </span>
+              </div>
             </div>
-          </div>
-        </a>
+          </a>
+        </div>
       </div>
-    </div>
   );
 }

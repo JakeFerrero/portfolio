@@ -1,0 +1,30 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 64px;
+  width: 100%;
+  margin-bottom: 48px;
+}
+
+.projectDescriptionWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 60px;
+
+  opacity: 0;
+  transform: translateY(50px);
+  transition: transform 0.5s ease, opacity 1s ease;
+}
+.projectDescriptionWrapper.reveal {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.projectDescription {
+  border-left: 2px solid;
+  border-image: linear-gradient(180deg, #00bfff, #3e84f2, #fd5e53, #fd8953) 1;
+  padding: 16px;
+  height: fit-content;
+  width: 400px;
+}
