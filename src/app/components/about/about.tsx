@@ -3,13 +3,25 @@ import { useEffect } from 'react';
 import pic from '../../images/japan_portfolio_pic.jpeg';
 import Education from './Education';
 import style from './about.module.css';
+import { useDeviceDetection } from '../utils/useDeviceDetection';
 
 export default function About() {
+  const { isMobile, isUnderWidth } = useDeviceDetection(950);
+
   useEffect(() => {
     const items = document.querySelectorAll(`.${style.item}`);
     const grid = document.querySelector(`.${style.grid}`);
     const hobbies = document.querySelector(`.${style.hobbyContainer}`);
     const cover = document.querySelector(`.${style.cover}`);
+
+    let gridThreshold;
+    if (isMobile) {
+      gridThreshold = 0.25;
+    } else if (isUnderWidth) {
+      gridThreshold = 0.55;
+    } else {
+      gridThreshold = 0.85;
+    }
 
     function revealItemsSequentially() {
       items.forEach((child, index) => {
@@ -49,7 +61,7 @@ export default function About() {
         });
       },
       {
-        threshold: 0.85
+        threshold: gridThreshold
       }
     );
 
@@ -57,6 +69,7 @@ export default function About() {
     gridObserver.observe(grid as any);
 
     let hobbiesHasCrossed = false;
+    const hobbyThreshold = isUnderWidth ? 0.35 : 0.4;
 
     const hobbyObserver = new IntersectionObserver(
       (entries) => {
@@ -79,7 +92,7 @@ export default function About() {
         });
       },
       {
-        threshold: 0.4
+        threshold: hobbyThreshold
       }
     );
 

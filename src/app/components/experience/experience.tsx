@@ -34,6 +34,7 @@ export default function Experience() {
   });
 
   return (
+    // TODO: on mobile, make experience a horizontal scroll carousel
     <>
       <div className="sectionTitle">
         <h2 className="glow-text" data-content="Experience">
