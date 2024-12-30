@@ -13,15 +13,16 @@ interface Props {
 export default function Education({ school, color, location, text, startDate, endDate }: Props) {
   return (
     <div className={style.edu}>
-      <div className={style.eduIcon}>
-        <i className="bi bi-briefcase-fill" style={{ fontSize: '20px' }}></i>
-      </div>
-      <h4 style={{ color: color, marginBottom: 0 }}>{school}</h4>
-      <div className={style.location}>{location}</div>
-      <div>
+      <h3 className={`proper-name`} style={{ color: color }}>
+        {school}
+      </h3>
+      <h4 className={style.location}>{location}</h4>
+      <div style={{ marginBottom: '8px' }}>
         <Timeframe timeframe={`${startDate} - ${endDate ?? 'Current'}`} />
       </div>
-      <span className="small-text">{text}</span>
+      <span className="small-text" style={{ fontWeight: 400 }}>
+        {text}
+      </span>
     </div>
   );
 }

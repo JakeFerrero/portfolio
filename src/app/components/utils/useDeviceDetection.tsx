@@ -2,8 +2,10 @@ import { useEffect, useState } from 'react';
 
 export const SMALLEST_IPHONE_SCREEN_WIDTH = 430;
 
+// TODO:
 function isMobileDevice(): boolean {
-  return /Mobi|Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+  // return /Mobi|Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+  return false;
 }
 
 const useWindowWidth = (threshold = 950) => {

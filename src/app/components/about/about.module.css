@@ -7,8 +7,8 @@
 
   animation: scrollHighlight linear forwards;
   animation-timeline: view();
-  animation-range-start: cover 15%;
-  animation-range-end: cover 55%;
+  animation-range-start: cover 10%;
+  animation-range-end: cover 50%;
 }
 
 @keyframes scrollHighlight {
@@ -19,124 +19,9 @@
 
 /* ----- Grid ----- */
 
-.grid {
-  display: grid;
-  grid-gap: 20px;
-  grid-template-columns: 1fr 1fr 2fr;
-  grid-template-rows: repeat(2, 1fr);
-  grid-template-areas:
-    'exp aws edu'
-    'ui leadership edu';
-
+.gridContainer {
+  margin-top: 80px;
   width: 100%;
-}
-
-.item h4 {
-  margin-bottom: 8px;
-  font-weight: 600;
-}
-
-#exp {
-  grid-area: exp;
-}
-
-#exp h4 {
-  width: fit-content;
-  background: linear-gradient(90deg, #00bfff, #3e84f2);
-  background-clip: text;
-  color: transparent;
-}
-
-#aws {
-  grid-area: aws;
-}
-
-#aws h4 {
-  width: fit-content;
-  background: linear-gradient(90deg, #FF9900, #FFB84D);
-  background-clip: text;
-  color: transparent;
-}
-
-#ui {
-  grid-area: ui;
-}
-
-#ui h4 {
-  width: fit-content;
-  background: linear-gradient(90deg, #fd5e53, #fd8953);
-  background-clip: text;
-  color: transparent;
-}
-
-
-#leadership {
-  grid-area: leadership;
-}
-
-#leadership h4 {
-  width: fit-content;
-  background: linear-gradient(90deg, rgb(53, 169, 138) 0%, rgb(109, 212, 0));
-  background-clip: text;
-  color: transparent;
-}
-
-#edu {
-  grid-area: edu;
-  justify-content: flex-start;
-  padding: 20px 40px;
-}
-
-#edu h4 {
-  width: fit-content;
-  background: linear-gradient(90deg, #9D4EDD, #D186F5);
-  font-weight: 600;
-  background-clip: text;
-  color: transparent;
-}
-
-.item {
-  background-color: #232323;
-  border-radius: 1rem;
-  padding: 20px;
-
-  font-size: 1rem;
-
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-
-  /* animation */
-  transform: translateX(200%);
-  opacity: 0;
-  transition: transform .6s ease, opacity .6s ease-in-out;
-}
-
-.item.slideIn {
-  transform: translateX(0);
-  opacity: 1;
-}
-
-.itemText {
-  /* Same as small-text */
-  font-size: 17px;
-  font-weight: 600;
-  font-style: normal;
-
-  /* Unique for better spacing inside containers */
-  line-height: 26px;
-}
-
-.item p {
-  flex: 1;
-  margin: 0;
-}
-
-.item ul {
-  list-style-type: none;
-  padding-left: 0;
-  margin: 0;
-  position: relative;
 }
 
 /* ----- Revealing Text ----- */
@@ -176,30 +61,52 @@
   }
 }
 
-/* ----- Hobbies ----- */
+/* ----- Education + Hobbies ----- */
+
+.eduContainer {
+  flex-direction: column;
+  justify-content: start;
+  align-items: left;
+  width: 100%;
+  gap: 32px;
+
+  margin-top: 120px;
+}
+
+.eduGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(352px, 1fr));
+  gap: 40px;
+}
+
 .hobbyContainer {
-  display: flex;
+  gap: 50px;
   justify-content: center;
   align-items: center;
-  gap: 50px;
+
+  margin-top: 120px;
+}
+
+.eduContainer, .hobbyContainer {
+  display: flex;
 
   opacity: 0;
   transform: translateY(50px);
   transition: transform 1s cubic-bezier(0, 0, 0.5, 1), opacity 1.2s cubic-bezier(0, 0, 0.5, 1);
 }
 
-.hobbyContainer.show {
+.eduContainer.show, .hobbyContainer.show {
   opacity: 1;
   transform: translateY(0);
 }
 
-.hobbyContainer h3 {
+.eduContainer .appearingH3, .hobbyContainer h3 {
   opacity: 0;
   transition: opacity .01s;
   transition-delay: .5s;
 }
 
-.hobbyContainer.show h3 {
+.eduContainer.show .appearingH3, .hobbyContainer.show h3 {
   opacity: 1;
 }
 
@@ -215,7 +122,7 @@
   justify-content: start;
   height: 100%;
 
-  padding-top: 36px;
+  padding-top: 24px;
 }
 
 #hobbyDetails > * {
@@ -223,38 +130,11 @@
 }
 
 @media only screen and (max-width: 950px) {
-  .grid {
-    grid-template-columns: 1fr 1fr;
-    grid-template-areas:
-      'exp aws'
-      'ui leadership'
-      'edu edu';
-
-    /* max-width: 700px; */
-  }
-
   .hobbyContainer {
     flex-direction: column;
   }
 
   #hobbyDetails {
     padding-top: 0;
-  }
-}
-
-@media only screen and (max-width: 600px) {
-  .grid {
-    grid-template-columns: 1fr;
-    grid-template-areas:
-      'exp'
-      'ui'
-      'aws'
-      'leadership'
-      'edu';
-  }
-
-  .item {
-    min-height: 190px;
-    height: fit-content;
   }
 }

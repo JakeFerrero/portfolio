@@ -1,48 +1,67 @@
 import Image from 'next/image';
 import { useEffect } from 'react';
 import pic from '../../images/japan_portfolio_pic.jpeg';
-import { useDeviceDetection } from '../utils/useDeviceDetection';
-import Education from './Education';
 import style from './about.module.css';
 import AboutGrid from './AboutGrid';
+import Education from './Education';
 
 export default function About() {
-  const { isUnderWidth } = useDeviceDetection(950);
-
   useEffect(() => {
     const hobbies = document.querySelector(`.${style.hobbyContainer}`);
-    const cover = document.querySelector(`.${style.cover}`);
+    const edu = document.querySelector(`.${style.eduContainer}`);
+    const hobbyCover = document.querySelector('#hobbyCover')!;
+    const eduCover = document.querySelector('#eduCover')!;
 
     let hobbiesHasCrossed = false;
-    const hobbyThreshold = isUnderWidth ? 0.35 : 0.4;
-
     const hobbyObserver = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             if (!hobbiesHasCrossed) {
               entry.target.classList.add(`${style.show}`);
-              cover!.classList.add(`${style.animate}`);
-              hobbiesHasCrossed = true; // Lock the state
+              hobbyCover.classList.add(`${style.animate}`);
+              hobbiesHasCrossed = true;
             }
           } else {
-            // User scrolls back up past the line
             const isScrollingUp = entry.boundingClientRect.top > 0;
             if (isScrollingUp) {
               entry.target.classList.remove(`${style.show}`);
-              cover!.classList.remove(`${style.animate}`);
-              hobbiesHasCrossed = false; // Unlock the state
+              hobbyCover.classList.remove(`${style.animate}`);
+              hobbiesHasCrossed = false;
             }
           }
         });
       },
-      {
-        threshold: hobbyThreshold
-      }
+      { threshold: .25 }
     );
 
     // TODO: why any
     hobbyObserver.observe(hobbies as any);
+
+    let eduHasCrossed = false;
+    const eduObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            if (!eduHasCrossed) {
+              entry.target.classList.add(`${style.show}`);
+              eduCover.classList.add(`${style.animate}`);
+              eduHasCrossed = true;
+            }
+          } else {
+            const isScrollingUp = entry.boundingClientRect.top > 0;
+            if (isScrollingUp) {
+              entry.target.classList.remove(`${style.show}`);
+              eduCover.classList.remove(`${style.animate}`);
+              eduHasCrossed = false;
+            }
+          }
+        });
+      },
+      { threshold: .5 }
+    );
+
+    eduObserver.observe(edu as any);
   });
 
   return (
@@ -65,36 +84,41 @@ export default function About() {
         </span>
       </div>
 
-      <AboutGrid />
+      <div className={style.gridContainer}>
+        <AboutGrid />
+      </div>
 
-      <div className={style.coverContainer}>
-        <h3>Education</h3>
-        <div className={style.cover} />
+      <div className={style.eduContainer}>
+        <div className={style.coverContainer}>
+          <h3 className={style.appearingH3}>Education</h3>
+          <div id='eduCover' className={style.cover} />
+        </div>
+        <div className={style.eduGrid}>
+          <Education
+            school="NC State University"
+            color="#CC0000"
+            location="Raleigh, NC"
+            text="Bachelor's Degree, Computer Science"
+            startDate="August 2013"
+            endDate="December 2018"
+          />
+          <Education
+            school="Sophia University"
+            color="#9a013d"
+            location="Tokyo, Japan"
+            text="Minor, Japanese"
+            startDate="June 2018"
+            endDate="July 2018"
+          />
+        </div>
       </div>
-      <div>
-        <Education
-          school="NC State University"
-          color="#CC0000"
-          location="Raleigh, NC"
-          text="Bachelor's Degree, Computer Science"
-          startDate="August 2013"
-          endDate="December 2018"
-        />
-        <Education
-          school="Sophia University"
-          color="#9a013d"
-          location="Tokyo, Japan"
-          text="Minor, Japanese"
-          startDate="June 2018"
-          endDate="July 2018"
-        />
-      </div>
+
       {/* ----- HOBBY ----- */}
       <div className={style.hobbyContainer}>
         <div id={style.hobbyDetails}>
           <div className={style.coverContainer}>
             <h3>Hobbies & Interests</h3>
-            <div className={style.cover} />
+            <div id="hobbyCover" className={style.cover} />
           </div>
           <span>
             In my spare time, I enjoy playing video games, spending time with friends and family, and improving my

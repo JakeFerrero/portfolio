@@ -1,33 +1,26 @@
 .edu {
-  width: 100%;
-
-  padding-left: 35px;
+  width: fit-content;
   text-align: left;
-
-  border-left: 2px solid;
-  border-image: linear-gradient(to bottom, #00bfff, #3e84f2, #fd5e53, #fd8953) 1;
-
+  border-top: 2px solid;
+  border-image: linear-gradient(90deg, #00bfff, #3e84f2, #fd5e53, #fd8953) 1;
   position: relative;
 }
 
-.eduIcon {
-  position: absolute;
-  top: 0;
-  left: -21px;
+.edu h3 {
+  margin-top: 16px;
+}
 
-  width: 42px;
-  height: 42px;
-  border-radius: 50%;
-
-  background-color: #404040;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.edu h4 {
+  margin: 10px 0;
 }
 
 .location {
-  margin-bottom: 6px;
   font-weight: 400;
   color: #b0b0b0;
+}
+
+@media only screen and (max-width: 863px) {
+  .edu {
+    width: 100%;
+  }
 }
