@@ -1,72 +1,17 @@
 import Image from 'next/image';
 import { useEffect } from 'react';
 import pic from '../../images/japan_portfolio_pic.jpeg';
+import { useDeviceDetection } from '../utils/useDeviceDetection';
 import Education from './Education';
 import style from './about.module.css';
-import { useDeviceDetection } from '../utils/useDeviceDetection';
+import AboutGrid from './AboutGrid';
 
 export default function About() {
-  const { isMobile, isUnderWidth } = useDeviceDetection(950);
+  const { isUnderWidth } = useDeviceDetection(950);
 
   useEffect(() => {
-    const items = document.querySelectorAll(`.${style.item}`);
-    const grid = document.querySelector(`.${style.grid}`);
     const hobbies = document.querySelector(`.${style.hobbyContainer}`);
     const cover = document.querySelector(`.${style.cover}`);
-
-    let gridThreshold;
-    if (isMobile) {
-      gridThreshold = 0.25;
-    } else if (isUnderWidth) {
-      gridThreshold = 0.55;
-    } else {
-      gridThreshold = 0.85;
-    }
-
-    function revealItemsSequentially() {
-      items.forEach((child, index) => {
-        setTimeout(() => {
-          child.classList.add(`${style.slideIn}`);
-        }, index * 150);
-      });
-    }
-
-    function removeItemsSequentially() {
-      items.forEach((child, index) => {
-        const reverseIndex = items.length - 1 - index;
-        setTimeout(() => {
-          child.classList.remove(`${style.slideIn}`);
-        }, reverseIndex * 160);
-      });
-    }
-
-    let gridHasCrossed = false;
-
-    const gridObserver = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            if (!gridHasCrossed) {
-              revealItemsSequentially();
-              gridHasCrossed = true; // Lock the state
-            }
-          } else {
-            // User scrolls back up past the line
-            const isScrollingUp = entry.boundingClientRect.top > 0;
-            if (isScrollingUp) {
-              removeItemsSequentially();
-              gridHasCrossed = false; // Unlock the state
-            }
-          }
-        });
-      },
-      {
-        threshold: gridThreshold
-      }
-    );
-
-    // TODO: why any
-    gridObserver.observe(grid as any);
 
     let hobbiesHasCrossed = false;
     const hobbyThreshold = isUnderWidth ? 0.35 : 0.4;
@@ -119,68 +64,30 @@ export default function About() {
           results. I thrive on solving complex problems and delivering scalable, impactful solutions.
         </span>
       </div>
-      {/* ----- GRID ----- TODO: move to its own component */}
-      <div className={style.grid}>
-        <div className={style.item} id={style.exp}>
-          <h4>
-            6 Years
-            <br />
-            Experience
-          </h4>
-          <div className={style.itemText}>
-            <ul>
-              <li>Node.js</li>
-              <li>Typescript</li>
-              <li>Javascript</li>
-            </ul>
-          </div>
-        </div>
-        <div className={style.item} id={style.aws}>
-          <h4>AWS</h4>
-          <div className={style.itemText}>
-            <p>Over 5 years of experience developing scalable microservices leveraging AWS</p>
-          </div>
-        </div>
-        <div className={style.item} id={style.ui}>
-          <h4>
-            UI / UX
-            <br />
-            Development
-          </h4>
-          <div className={style.itemText}>
-            <ul>
-              <li>React.js</li>
-              <li>Next.js</li>
-              <li>HTML & CSS</li>
-            </ul>
-          </div>
-        </div>
-        <div className={style.item} id={style.leadership}>
-          <h4>Leadership</h4>
-          <div className={style.itemText}>
-            <p>Proven leadership skills as a technical lead for a small group of engineers</p>
-          </div>
-        </div>
-        <div className={style.item} id={style.edu}>
-          <h4>Education</h4>
-          <Education
-            school="NC State University"
-            color="#CC0000"
-            location="Raleigh, NC"
-            text="Bachelor's Degree, Computer Science"
-            startDate="August 2013"
-            endDate="December 2018"
-          />
-          <div style={{ padding: '16px' }} />
-          <Education
-            school="Sophia University"
-            color="#9a013d"
-            location="Tokyo, Japan"
-            text="Minor, Japanese"
-            startDate="June 2018"
-            endDate="July 2018"
-          />
-        </div>
+
+      <AboutGrid />
+
+      <div className={style.coverContainer}>
+        <h3>Education</h3>
+        <div className={style.cover} />
+      </div>
+      <div>
+        <Education
+          school="NC State University"
+          color="#CC0000"
+          location="Raleigh, NC"
+          text="Bachelor's Degree, Computer Science"
+          startDate="August 2013"
+          endDate="December 2018"
+        />
+        <Education
+          school="Sophia University"
+          color="#9a013d"
+          location="Tokyo, Japan"
+          text="Minor, Japanese"
+          startDate="June 2018"
+          endDate="July 2018"
+        />
       </div>
       {/* ----- HOBBY ----- */}
       <div className={style.hobbyContainer}>
