@@ -19,7 +19,7 @@
   color: #b0b0b0;
 }
 
-@media only screen and (max-width: 863px) {
+@media only screen and (max-width: calc(355px + 355px + 100px + 100px - 1px)) {
   .edu {
     width: 100%;
   }

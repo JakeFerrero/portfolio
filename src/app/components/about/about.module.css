@@ -75,8 +75,9 @@
 
 .eduGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(352px, 1fr));
-  gap: 40px;
+  grid-template-columns: repeat(auto-fill, minmax(355px, 1fr));
+  column-gap: 100px;
+  row-gap: 40px;
 }
 
 .hobbyContainer {
@@ -136,5 +137,12 @@
 
   #hobbyDetails {
     padding-top: 0;
+  }
+}
+
+@media only screen and (min-width: calc(355px + 355px + 100px + 100px)) {
+  .eduGrid {
+    grid-template-columns: 355px 355px;
+    justify-content: start;
   }
 }
