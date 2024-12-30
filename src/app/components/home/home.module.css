@@ -3,8 +3,8 @@
 .container {
   display: flex;
   justify-content: space-between;
-  gap: 50px;
   align-items: center;
+  gap: 40px;
 }
 
 #details {
@@ -12,8 +12,7 @@
   flex-direction: column;
   justify-content: center;
   height: 100%;
-
-  padding: 20px;
+  width: fit-content;
 }
 
 #details > * {
@@ -31,7 +30,7 @@
   display: block;
   position: relative;
 
-  width: 480px;
+  width: 474px;
   height: 60px; /* h2 line height */
 }
 
@@ -42,9 +41,11 @@
   height: 100%;
   width: 0;
   background: white;
-  /* background: linear-gradient(90deg, #00bfff, #3e84f2, #fd5e53, #fd8953); */
   z-index: 10;
-  animation: reveal 3s ease-in-out 3s infinite;
+}
+
+.cover.reveal {
+  animation: reveal ease-in-out 1s;
 }
 
 @keyframes reveal {
@@ -52,20 +53,10 @@
     width: 0;
     left: 0;
   }
-  18% {
+  50% {
     width: 100%;
     left: 0;
   }
-  /* Delay for a bit so word can change */
-  21% {
-    width: 100%;
-    left: 0;
-  }
-  39% {
-    width: 0;
-    left: 100%;
-  }
-  /* Delay for a bit so user can read new text */
   100% {
     width: 0;
     left: 100%;
@@ -73,6 +64,10 @@
 }
 
 /* ----- Button ----- */
+
+.buttonContainer {
+  margin-top: 55px;
+}
 
 @property --gradient-angle {
   syntax: '<angle>';
@@ -113,5 +108,31 @@
   }
   100% {
     --gradient-angle: 360deg;
+  }
+}
+
+@media (max-width: 985px) {
+  .container {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  #details {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .buttonContainer {
+    margin-top: 20px;
+  }
+
+  .coveredTextContainer {
+    width: 480px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
   }
 }

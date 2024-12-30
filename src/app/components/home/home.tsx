@@ -1,44 +1,42 @@
 'use client';
 import Image from 'next/image';
-import { useEffect, useState } from 'react';
+import headshot from '../../images/headshot.jpg';
 import selfie from '../../images/website_selfie.jpg';
+import { useDeviceDetection } from '../utils/useDeviceDetection';
 import style from './home.module.css';
+import { useWordSwitcher } from './useWordSwitcher';
 
 export default function Home() {
-  const words = ['Software Engineer', 'UI / UX Developer', 'Backend Developer', 'Japan Enthusiast'];
-  const [currentWordIndex, setCurrentWordIndex] = useState(0);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentWordIndex((prevIndex) => (prevIndex + 1) % words.length);
-    }, 3000);
-
-    return () => clearInterval(interval); // Cleanup interval on component unmount
-  }, [words.length]);
+  const { isUnderWidth } = useDeviceDetection(986);
+  const { currentWord, animate } = useWordSwitcher();
 
   return (
     <div className={style.container}>
-      <div id={style.selfie}>
-        <Image src={selfie} alt="selfie" width={436} height={616} style={{ borderRadius: '5%' }} />
-      </div>
+      {isUnderWidth ? (
+        <Image src={headshot} alt="headshot" width={1490 * 0.2} height={1608 * 0.2} style={{ borderRadius: '50%' }} />
+      ) : (
+        <div id={style.selfie}>
+          <Image src={selfie} alt="selfie" width={436} height={616} style={{ borderRadius: '5%' }} />
+        </div>
+      )}
+
       <div id={style.details}>
-        {/* <h4>Hello, I&apos;m</h4> */}
         <h1 className="glow-text" data-content="Jake Ferrero">
           Jake Ferrero
         </h1>
 
         <div className={style.coveredTextContainer}>
-          <div className={style.cover} />
-          <h2 className="glow-text" data-content={words[currentWordIndex]}>
-            {words[currentWordIndex]}
+          <div className={`${style.cover} ${animate ? `${style.reveal}` : ''}`} />
+          <h2 id="changing-text" className="glow-text" data-content={currentWord}>
+            {currentWord}
           </h2>
         </div>
+
         <p className="small-text">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-          magna aliqua.
+          Software developer driven by a passion for learning new technologies and solving complex problems with
+          innovative solutions.
         </p>
-        <br />
-        <br />
+
         <div className={style.buttonContainer}>
           <button className={style.button}>Download Resume</button>
         </div>

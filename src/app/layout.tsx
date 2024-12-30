@@ -1,6 +1,5 @@
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import 'bootstrap/dist/css/bootstrap.css';
-// import style from './root.module.css';
 import './globals.css';
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

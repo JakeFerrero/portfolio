@@ -7,7 +7,7 @@ import Projects from './components/projects/projects';
 
 export default function Root() {
   return (
-    <>
+    <div>
       <section id="home">
         <div className="contentContainer">
           <Home />
@@ -33,6 +33,6 @@ export default function Root() {
           <Contact />
         </div>
       </section>
-    </>
+    </div>
   );
 }

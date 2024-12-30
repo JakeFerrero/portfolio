@@ -32,7 +32,7 @@ export default function About() {
           }
         });
       },
-      { threshold: .25 }
+      { threshold: .35 }
     );
 
     // TODO: why any
@@ -58,7 +58,7 @@ export default function About() {
           }
         });
       },
-      { threshold: .5 }
+      { threshold: .55 }
     );
 
     eduObserver.observe(edu as any);
