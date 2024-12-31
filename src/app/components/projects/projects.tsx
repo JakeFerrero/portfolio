@@ -1,4 +1,3 @@
-import { use } from 'react';
 import { useDeviceDetection } from '../utils/useDeviceDetection';
 import ProjectCard from './ProjectCard';
 import style from './projects.module.css';
@@ -6,7 +5,7 @@ import TwoColumnProjectGrid from './TwoColumnProjectGrid';
 import { useProjectObserver } from './projectsObserver';
 
 export default function Projects() {
-  const { isUnderWidth } = useDeviceDetection(1000);
+  const { isUnderWidth } = useDeviceDetection(1140);
   console.log('isUnderWidth', isUnderWidth);
 
   useProjectObserver(isUnderWidth);

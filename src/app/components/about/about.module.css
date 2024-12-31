@@ -140,7 +140,7 @@
   }
 }
 
-@media only screen and (min-width: calc(355px + 355px + 100px + 100px)) {
+@media only screen and (min-width: 1000px) {
   .eduGrid {
     grid-template-columns: 355px 355px;
     justify-content: start;

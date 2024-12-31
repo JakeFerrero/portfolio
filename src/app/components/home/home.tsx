@@ -7,7 +7,7 @@ import style from './home.module.css';
 import { useWordSwitcher } from './useWordSwitcher';
 
 export default function Home() {
-  const { isUnderWidth } = useDeviceDetection(986);
+  const { isUnderWidth } = useDeviceDetection(1135);
   const { currentWord, animate } = useWordSwitcher();
 
   return (
@@ -32,10 +32,12 @@ export default function Home() {
           </h2>
         </div>
 
-        <p className="small-text">
-          Software developer driven by a passion for learning new technologies and solving complex problems with
-          innovative solutions.
-        </p>
+        <div className={style.descriptionContainer}>
+          <p className="small-text">
+            Software developer driven by a passion for learning new technologies and solving complex problems with
+            innovative solutions.
+          </p>
+        </div>
 
         <div className={style.buttonContainer}>
           <button className={style.button}>Download Resume</button>

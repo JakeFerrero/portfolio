@@ -1,19 +1,10 @@
-@media only screen and (max-width: 950px) {
-  .container {
-    flex-direction: column;
-  }
-
-  #contactPic {
-    display: none;
-  }
-}
-
 .container {
   display: flex;
   height: 100%;
   align-items: center;
   justify-content: space-between;
   gap: 50px;
+  padding: 20px;
 
   opacity: 0;
   transform: translateY(50px);
@@ -36,8 +27,6 @@
   flex-direction: column;
   justify-content: center;
   gap: 20px;
-
-  padding: 20px;
 }
 
 .emailLocation {
@@ -145,4 +134,14 @@
 
 .container.show h3 {
   opacity: 1;
+}
+
+@media only screen and (max-width: 1020px) {
+  .container {
+    flex-direction: column;
+  }
+
+  #contactPic {
+    display: none;
+  }
 }

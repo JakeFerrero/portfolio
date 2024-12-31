@@ -104,7 +104,7 @@ section {
   width: 100vw;
   
   /* section titles use h2, whose line height is 60px */
-  padding: calc(40px + 60px + 40px) 40px 40px 40px;
+  padding: calc(40px + 60px + 40px) 84px 40px 84px;
 
   position: relative;
 }
@@ -132,7 +132,7 @@ section {
 /* ---------- Individual Sections ---------- */
 
 #home {
-  padding: 40px;
+  padding: 40px 84px 40px 84px;
 }
 
 #home .contentContainer {

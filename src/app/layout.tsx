@@ -1,6 +1,7 @@
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import 'bootstrap/dist/css/bootstrap.css';
 import './globals.css';
+import Sidebar from './components/utils/Sidebar';
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
@@ -11,6 +12,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <link rel="preload" href="./website_selfie.jpg" as="image" />
       </head>
       <body>
+        <Sidebar />
         <div>{children}</div>
       </body>
     </html>

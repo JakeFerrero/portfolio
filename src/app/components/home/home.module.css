@@ -24,6 +24,10 @@
   margin-bottom: 1rem;
 }
 
+.descriptionContainer {
+  max-width: 510px;
+}
+
 /* ----- Covered Text ----- */
 
 .coveredTextContainer {
@@ -111,7 +115,7 @@
   }
 }
 
-@media (max-width: 985px) {
+@media (max-width: 1134px) {
   .container {
     flex-direction: column;
     gap: 10px;
@@ -124,6 +128,10 @@
     align-items: center;
   }
 
+  #details > * {
+    text-align: center;
+  }
+
   .buttonContainer {
     margin-top: 20px;
   }
@@ -134,5 +142,9 @@
     justify-content: center;
     align-items: center;
     position: relative;
+  }
+
+  .descriptionContainer {
+    max-width: 600px;
   }
 }
