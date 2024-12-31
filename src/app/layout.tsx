@@ -1,9 +1,14 @@
+'use client';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import 'bootstrap/dist/css/bootstrap.css';
+import Sidebar from './components/utils/navbars/Sidebar';
 import './globals.css';
-import Sidebar from './components/utils/Sidebar';
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
+  /**
+   * TODO: active button should not only be what is clicked on, but also what section
+   * the user is in.
+   */
   return (
     <html lang="en">
       <head>
