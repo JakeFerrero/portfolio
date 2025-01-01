@@ -13,10 +13,10 @@ export default function Home() {
   return (
     <div className={style.container}>
       {isUnderWidth ? (
-        <Image src={headshot} alt="headshot" width={1490 * 0.18} height={1608 * 0.18} style={{ borderRadius: '50%' }} />
+        <Image src={headshot} alt="headshot" width={1490 * 0.18} height={1608 * 0.18} style={{ borderRadius: '50%' }} priority />
       ) : (
         <div id={style.selfie}>
-          <Image src={selfie} alt="selfie" width={436} height={616} style={{ borderRadius: '5%' }} />
+          <Image src={selfie} alt="selfie" width={436} height={616} style={{ borderRadius: '5%' }} priority />
         </div>
       )}
 

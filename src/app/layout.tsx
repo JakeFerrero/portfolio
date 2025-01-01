@@ -17,7 +17,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Portfolio</title>
-        <link rel="preload" href='./images/website_selfie.jpg' as="image" />
       </head>
       <body>
         { isUnderWidth ? <Navbar /> : <Sidebar /> }

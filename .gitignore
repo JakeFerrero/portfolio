@@ -2,6 +2,7 @@
 /lib/
 /build/
 .DS_Store
+package-lock.json
 
 
 # next.js
