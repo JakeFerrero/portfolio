@@ -1,0 +1,150 @@
+/* ----- Layout ----- */
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 40px;
+}
+
+#details {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  width: fit-content;
+}
+
+#details > * {
+  text-align: left;
+}
+
+#details h1,
+#details .coveredTextContainer {
+  margin-bottom: 1rem;
+}
+
+.descriptionContainer {
+  max-width: 510px;
+}
+
+/* ----- Covered Text ----- */
+
+.coveredTextContainer {
+  display: block;
+  position: relative;
+
+  width: 474px;
+  height: 60px; /* h2 line height */
+}
+
+.cover {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 0;
+  background: white;
+  z-index: 10;
+}
+
+.cover.reveal {
+  animation: reveal ease-in-out 1s;
+}
+
+@keyframes reveal {
+  0% {
+    width: 0;
+    left: 0;
+  }
+  50% {
+    width: 100%;
+    left: 0;
+  }
+  100% {
+    width: 0;
+    left: 100%;
+  }
+}
+
+/* ----- Button ----- */
+
+.buttonContainer {
+  margin-top: 55px;
+}
+
+@property --gradient-angle {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
+} /* All three of these properties are needed or property won't register */
+
+.button {
+  width: fit-content;
+  position: relative;
+  padding: 10px 20px;
+  font-size: 16px;
+  color: white;
+  background: #333;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+}
+
+.button::before,
+.button::after {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: inherit;
+  background: conic-gradient(from var(--gradient-angle), #00bfff, #3e84f2, #fd5e53, #fd8953, #00bfff);
+  animation: rotation 4s linear infinite;
+  z-index: -1;
+}
+
+.button::after {
+  filter: blur(1rem);
+}
+
+@keyframes rotation {
+  0% {
+    --gradient-angle: 0deg;
+  }
+  100% {
+    --gradient-angle: 360deg;
+  }
+}
+
+@media (max-width: 1134px) {
+  .container {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  #details {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  #details > * {
+    text-align: center;
+  }
+
+  .buttonContainer {
+    margin-top: 20px;
+  }
+
+  .coveredTextContainer {
+    width: 480px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+  }
+
+  .descriptionContainer {
+    max-width: 600px;
+  }
+}

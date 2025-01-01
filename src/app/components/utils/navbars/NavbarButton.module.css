@@ -1,0 +1,38 @@
+.navbarButtonContainer {
+  position: relative;
+  width: 60px;
+  height: 60px;
+}
+
+.navbarButton {
+  background-color: #444;
+  width: 60px;
+  height: 60px;
+  color: white;
+  cursor: pointer;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  border: none;
+  border-radius: 60px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, .4);
+
+  position: absolute;
+  right: 0;
+  overflow: hidden;
+
+  transition: width 0.5s ease;
+}
+
+.navbarButton.active {
+  /* background: linear-gradient(to right, #00bfff, #3e84f2, #fd5e53, #fd8953); */
+  /* TODO: once I figure out how to do active by what section user is viewing, update this */
+  background: #444;
+}
+
+.navbarButton i {
+  margin: 0;
+}

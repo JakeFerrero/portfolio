@@ -1,0 +1,26 @@
+.edu {
+  width: fit-content;
+  text-align: left;
+  border-top: 2px solid;
+  border-image: linear-gradient(90deg, #00bfff, #3e84f2, #fd5e53, #fd8953) 1;
+  position: relative;
+}
+
+.edu h3 {
+  margin-top: 16px;
+}
+
+.edu h4 {
+  margin: 10px 0;
+}
+
+.location {
+  font-weight: 400;
+  color: #b0b0b0;
+}
+
+@media only screen and (max-width: calc(1000px - 1px)) {
+  .edu {
+    width: 100%;
+  }
+}

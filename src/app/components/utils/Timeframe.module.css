@@ -1,0 +1,9 @@
+.timeframe {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+  background-color: #404040;
+  width: fit-content;
+  padding: 3px 10px;
+}

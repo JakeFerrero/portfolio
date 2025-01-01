@@ -1,0 +1,24 @@
+.grid {
+  width: 100%;
+  display: grid;
+  grid-gap: 20px;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  grid-auto-rows: 1fr;
+}
+
+@media only screen and (max-width: 1179px) and (min-width: 910px) {
+  .grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.itemWrapper {
+  transform: translateX(200%);
+  opacity: 0;
+  transition: transform .6s ease, opacity .6s ease-in-out;
+}
+
+.itemWrapper.slideIn {
+  transform: translateX(0);
+  opacity: 1;
+}

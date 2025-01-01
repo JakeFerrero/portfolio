@@ -1,0 +1,43 @@
+.item {
+  height: 100%;
+  
+  background-color: #232323;
+  border-radius: 20px;
+  padding: 20px;
+
+  font-size: 1rem;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.item h4 {
+  font-weight: 600;
+  width: fit-content;
+  margin-bottom: 8px;
+  background-clip: text;
+  color: transparent;
+}
+
+.item p {
+  flex: 1;
+  margin: 0;
+}
+
+.item ul {
+  list-style-type: none;
+  padding-left: 0;
+  margin: 0;
+  position: relative;
+}
+
+.itemText {
+  /* Same as small-text */
+  font-size: 17px;
+  font-weight: 600;
+  font-style: normal;
+
+  /* Unique for better spacing inside containers */
+  line-height: 26px;
+}

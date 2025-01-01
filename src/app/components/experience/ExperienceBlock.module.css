@@ -1,0 +1,45 @@
+.exp {
+  width: 100%;
+
+  padding-left: 35px;
+  text-align: left;
+
+  border-left: 2px solid;
+  border-image: linear-gradient(to bottom, #00bfff, #3e84f2, #fd5e53, #fd8953) 1;
+
+  position: relative;
+}
+
+.expIcon {
+  position: absolute;
+  top: 0;
+  left: -21px;
+
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+
+  background-color: #404040;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.exp h4 {
+  margin: 10px 0;
+  font-weight: 400;
+}
+
+.exp h4 {
+  color: #b0b0b0;
+}
+
+.expList {
+  padding-left: 17px;
+  margin: 0;
+}
+
+.expList li {
+  line-height: 32px;
+}

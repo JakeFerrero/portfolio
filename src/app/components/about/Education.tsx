@@ -1,18 +1,28 @@
-import ExperienceTimeframe from './ExperienceTimeframe';
-import style from './skillCard.module.css';
+import Timeframe from '../utils/Timeframe';
+import style from './Education.module.css';
 
-export default function Education() {
+interface Props {
+  school: string;
+  color: string;
+  location: string;
+  text: string;
+  startDate: string;
+  endDate: string;
+}
+
+export default function Education({ school, color, location, text, startDate, endDate }: Props) {
   return (
-    <div>
-      <span className={style.skillName}>NC State University</span>
-      <br />
-      <ExperienceTimeframe timeframe="August 2013 - December 2018" />
-      <br />
-      <b>Bachelor&apos;s Degree:</b> Computer Science
-      <br />
-      <b>Minor:</b> Japanese
-      <br />
-      <b>GPA:</b> 4.0
+    <div className={style.edu}>
+      <h3 className={`proper-name`} style={{ color: color }}>
+        {school}
+      </h3>
+      <h4 className={style.location}>{location}</h4>
+      <div style={{ marginBottom: '8px' }}>
+        <Timeframe timeframe={`${startDate} - ${endDate ?? 'Current'}`} />
+      </div>
+      <span className="small-text" style={{ fontWeight: 400 }}>
+        {text}
+      </span>
     </div>
   );
 }

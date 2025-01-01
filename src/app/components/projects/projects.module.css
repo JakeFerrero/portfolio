@@ -1,0 +1,153 @@
+.gridContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 42px;
+
+  flex: 1;
+  width: 100%;
+}
+
+.grid, .descriptionGrid {
+  display: grid;
+  gap: 64px;
+  grid-template-columns: 256px 256px 256px;
+  justify-content: space-evenly;
+  width: 100%;
+}
+
+.itemAnimationWrapper {
+  transform: translateX(100%);
+  opacity: 0;
+  transition: transform 0.5s ease, opacity 0.5s ease;
+}
+
+.itemWrapper {
+  height: 100%;
+  border-radius: 20px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.itemWrapper a {
+  border-radius: inherit;
+  text-decoration: none;
+}
+
+.itemWrapper:hover > * {
+  transform: scale(1.1);
+}
+.itemGlow, .item {
+  transition: transform 0.3s ease;
+}
+
+.itemAnimationWrapper.slideIn {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+.itemGlow {
+  position: relative;
+  width: 256px;
+  height: 256px;
+  border-radius: inherit;
+  
+  background: conic-gradient(
+    from var(--gradient-angle),
+    #00bfff,
+    #3e84f2,
+    #fd5e53,
+    #fd8953,
+    #00bfff
+  );
+  animation: rotation 4s linear infinite;
+  z-index: 1;
+}
+.itemGlow::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: conic-gradient(from var(--gradient-angle), #00bfff, #3e84f2, #fd5e53, #fd8953, #00bfff);
+  animation: rotation 4s linear infinite;
+  filter: blur(1rem);
+  z-index: 0;
+}
+
+.item {
+  position: absolute;
+  inset: 3px;
+  width: 250px;
+  height: 250px;
+  border-radius: inherit;
+
+  padding: 16px;
+  
+  background-color: #191919;
+  color: white;
+  
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  
+  z-index: 2;
+}
+
+.item h3 {
+  background: linear-gradient(90deg, #00bfff, #3e84f2, #fd5e53, #fd8953);
+  background-clip: text;
+  color: transparent;
+}
+
+@property --gradient-angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+} /* All three of these properties are needed or property won't register */
+
+@keyframes rotation {
+  0% { --gradient-angle: 0deg; }
+  100% { --gradient-angle: 360deg; }
+}
+
+.icons {
+  width: 100%;
+  text-align: left;
+}
+
+.github {
+  width: 100%;
+  text-align: right;
+}
+
+.projectDescription {
+  border-top: 2px solid;
+  border-image: linear-gradient(90deg, #00bfff, #3e84f2, #fd5e53, #fd8953) 1;
+  padding: 10px;
+
+  opacity: 0;
+  transform: translateY(50px);
+  transition: transform 0.5s ease, opacity 1s ease;
+}
+.projectDescription.reveal {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.projectsBottom {
+  width: 100%;
+  text-align: right;
+}
+
+.projectsBottom span {
+  font-weight: 400;
+}
+
+.projectsBottom a {
+  color: #00bfff;
+  text-decoration: none;
+}
