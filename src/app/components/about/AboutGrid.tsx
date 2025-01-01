@@ -1,19 +1,31 @@
-import { useEffect } from 'react';
-import { useDeviceDetection } from '../utils/useDeviceDetection';
+import { useEffect, useState } from 'react';
+import { isScreenUnderThreshold } from '../utils/deviceDetection';
 import style from './AboutGrid.module.css';
 import AboutGridItem from './AboutGridItem';
 
 export default function AboutGrid() {
-  const { isUnderWidth: isSmall } = useDeviceDetection(1179);
-  const { isUnderWidth: isSuperSmall } = useDeviceDetection(639);
+  const [isSmallScreen, setIsSmallScreen] = useState(false);
+  const [isSuperSmallScreen, setIsSuperSmallScreen] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsSmallScreen(isScreenUnderThreshold(1179));
+      setIsSuperSmallScreen(isScreenUnderThreshold(639));
+    };
+
+    window.addEventListener('resize', handleResize);
+    handleResize();  // Check initial size
+
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   useEffect(() => {
     const grid = document.querySelector(`.${style.grid}`)!;
     const items = grid.querySelectorAll(':scope > *');
 
     let gridThreshold = 1;
-    if (isSmall) {
-      gridThreshold = isSuperSmall ? 0.2 : 0.5;
+    if (isSmallScreen) {
+      gridThreshold = isSuperSmallScreen ? 0.2 : 0.5;
     }
 
     function revealItemsSequentially() {

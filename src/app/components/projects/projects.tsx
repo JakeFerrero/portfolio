@@ -1,13 +1,25 @@
-import { useDeviceDetection } from '../utils/useDeviceDetection';
+import { useEffect, useState } from 'react';
+import { isScreenUnderThreshold } from '../utils/deviceDetection';
 import ProjectCard from './ProjectCard';
 import style from './projects.module.css';
-import TwoColumnProjectGrid from './TwoColumnProjectGrid';
 import { useProjectObserver } from './projectsObserver';
+import TwoColumnProjectGrid from './TwoColumnProjectGrid';
 
 export default function Projects() {
-  const { isUnderWidth } = useDeviceDetection(1140);
+  const [isSmallScreen, setIsSmallScreen] = useState(false);
 
-  useProjectObserver(isUnderWidth);
+  useEffect(() => {
+    const handleResize = () => {
+      setIsSmallScreen(isScreenUnderThreshold(1140));
+    };
+
+    window.addEventListener('resize', handleResize);
+    handleResize();
+
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  useProjectObserver(isSmallScreen);
 
   return (
     <>
@@ -16,7 +28,7 @@ export default function Projects() {
           Projects
         </h2>
       </div>
-      {isUnderWidth ? (
+      {isSmallScreen ? (
         <TwoColumnProjectGrid />
       ) : (
         <div className={style.gridContainer}>

@@ -2,18 +2,37 @@
 import Image from 'next/image';
 import headshot from '../../images/headshot.jpg';
 import selfie from '../../images/website_selfie.jpg';
-import { useDeviceDetection } from '../utils/useDeviceDetection';
+import { isScreenUnderThreshold } from '../utils/deviceDetection';
 import style from './home.module.css';
 import { useWordSwitcher } from './useWordSwitcher';
+import { useEffect, useState } from 'react';
 
 export default function Home() {
-  const { isUnderWidth } = useDeviceDetection(1160);
   const { currentWord, animate } = useWordSwitcher();
+  const [isSmallScreen, setIsSmallScreen] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsSmallScreen(isScreenUnderThreshold(1160));
+    };
+
+    window.addEventListener('resize', handleResize);
+    handleResize();  // Check initial size
+
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   return (
     <div className={style.container}>
-      {isUnderWidth ? (
-        <Image src={headshot} alt="headshot" width={1490 * 0.18} height={1608 * 0.18} style={{ borderRadius: '50%' }} priority />
+      {isSmallScreen ? (
+        <Image
+          src={headshot}
+          alt="headshot"
+          width={1490 * 0.18}
+          height={1608 * 0.18}
+          style={{ borderRadius: '50%' }}
+          priority
+        />
       ) : (
         <div id={style.selfie}>
           <Image src={selfie} alt="selfie" width={436} height={616} style={{ borderRadius: '5%' }} priority />
