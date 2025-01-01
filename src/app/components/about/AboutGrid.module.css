@@ -6,7 +6,7 @@
   grid-auto-rows: 1fr;
 }
 
-@media only screen and (max-width: 1179px) and (min-width: 910px) {
+@media only screen and (max-width: 1267px) and (min-width: 998px) {
   .grid {
     grid-template-columns: 1fr 1fr;
   }
