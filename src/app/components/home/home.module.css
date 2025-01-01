@@ -4,7 +4,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 40px;
+  gap: 60px;
 }
 
 #details {
@@ -21,7 +21,7 @@
 
 #details h1,
 #details .coveredTextContainer {
-  margin-bottom: 1rem;
+  margin-bottom: 16px;
 }
 
 .descriptionContainer {
@@ -115,7 +115,7 @@
   }
 }
 
-@media (max-width: 1134px) {
+@media (max-width: 1159px) {
   .container {
     flex-direction: column;
     gap: 10px;
@@ -146,5 +146,9 @@
 
   .descriptionContainer {
     max-width: 600px;
+  }
+
+  .buttonContainer {
+    margin-top: 0;
   }
 }
