@@ -1,6 +1,6 @@
 import style from './SidebarButton.module.css';
 
-const BUTTON_TYPE_ICON_MAP: Record<string, string> = {
+export const BUTTON_TYPE_ICON_MAP: Record<string, string> = {
   home: 'bi-house-fill',
   about: 'bi-person-fill',
   experience: 'bi-briefcase-fill',

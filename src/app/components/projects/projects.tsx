@@ -6,7 +6,6 @@ import { useProjectObserver } from './projectsObserver';
 
 export default function Projects() {
   const { isUnderWidth } = useDeviceDetection(1140);
-  console.log('isUnderWidth', isUnderWidth);
 
   useProjectObserver(isUnderWidth);
 
