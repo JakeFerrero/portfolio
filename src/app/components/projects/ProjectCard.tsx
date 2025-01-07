@@ -19,36 +19,36 @@ export default function ProjectCard({ name, tools, link }: Props) {
   for (const tool of tools) {
     switch (tool) {
       case 'Typescript':
-        toolIcons.add(<Image key="ts" src={tsIcon} alt={tool} width={24} height={24} />);
+        toolIcons.add(<Image key="ts" src={tsIcon} alt={tool} width={24} height={24} loading="lazy" />);
         break;
       case 'NodeJS':
-        toolIcons.add(<Image key="node" src={nodejsIcon} alt={tool} width={24} height={24} />);
+        toolIcons.add(<Image key="node" src={nodejsIcon} alt={tool} width={24} height={24} loading="lazy" />);
         break;
       case 'React':
-        toolIcons.add(<Image key="react" src={reactIcon} alt={tool} width={24} height={24} />);
+        toolIcons.add(<Image key="react" src={reactIcon} alt={tool} width={24} height={24} loading="lazy" />);
         break;
       case 'NextJS':
-        toolIcons.add(<Image key="next" src={nextjsIcon} alt={tool} width={24} height={24} />);
+        toolIcons.add(<Image key="next" src={nextjsIcon} alt={tool} width={24} height={24} loading="lazy" />);
         break;
     }
   }
 
   return (
-      <div className={style.itemWrapper}>
-        <div className={style.itemGlow}>
-          <a href={link} role="button">
-            <div className={style.item}>
-              <div className={style.icons}>{toolIcons}</div>
-              <h3>{name}</h3>
-              <div className={style.github}>
-                <span className="small-text" style={{ fontWeight: 400 }}>
-                  View on GitHub&nbsp;
-                  <Image key="github" src={githubIcon} alt="GitHub" width={24} height={24} />
-                </span>
-              </div>
+    <div className={style.itemWrapper}>
+      <div className={style.itemGlow}>
+        <a href={link} role="button">
+          <div className={style.item}>
+            <div className={style.icons}>{toolIcons}</div>
+            <h3>{name}</h3>
+            <div className={style.github}>
+              <span className="small-text" style={{ fontWeight: 400 }}>
+                View on GitHub&nbsp;
+                <Image key="github" src={githubIcon} alt="GitHub" width={24} height={24} loading='lazy' />
+              </span>
             </div>
-          </a>
-        </div>
+          </div>
+        </a>
       </div>
+    </div>
   );
 }

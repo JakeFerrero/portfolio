@@ -90,6 +90,7 @@ export default function Contact() {
           width={3024 * 0.14}
           height={3780 * 0.14}
           style={{ borderRadius: '5%' }}
+          loading='lazy'
         />
       </div>
     </>
