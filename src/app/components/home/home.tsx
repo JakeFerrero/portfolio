@@ -1,11 +1,11 @@
 'use client';
 import Image from 'next/image';
+import { useEffect, useState } from 'react';
 import headshot from '../../images/headshot.jpg';
 import selfie from '../../images/website_selfie.jpg';
 import { isScreenUnderThreshold } from '../utils/deviceDetection';
 import style from './home.module.css';
 import { useWordSwitcher } from './useWordSwitcher';
-import { useEffect, useState } from 'react';
 
 export default function Home() {
   const { currentWord, animate } = useWordSwitcher();
@@ -17,7 +17,7 @@ export default function Home() {
     };
 
     window.addEventListener('resize', handleResize);
-    handleResize();  // Check initial size
+    handleResize(); // Check initial size
 
     return () => window.removeEventListener('resize', handleResize);
   }, []);
@@ -32,10 +32,21 @@ export default function Home() {
           height={1608 * 0.18}
           style={{ borderRadius: '50%' }}
           priority
+          loading="eager"
+          placeholder='blur'
         />
       ) : (
         <div id={style.selfie}>
-          <Image src={selfie} alt="selfie" width={436} height={616} style={{ borderRadius: '5%' }} priority />
+          <Image
+            src={selfie}
+            alt="selfie"
+            width={436}
+            height={616}
+            style={{ borderRadius: '5%' }}
+            priority
+            loading="eager"
+            placeholder='blur'
+          />
         </div>
       )}
 
