@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import { useEffect } from 'react';
-import pic from '../../images/japan_portfolio_pic.jpeg';
+import pic from '../../images/kyoto_selfie.webp';
 import style from './about.module.css';
 import AboutGrid from './AboutGrid';
 import Education from './Education';
@@ -129,7 +129,7 @@ export default function About() {
           <span>日本や他の趣味について話すのが好きなので、連絡して遠慮しないでよ！</span>
         </div>
         <div id={style.hobbyPic}>
-          <Image src={pic} alt="japan_pic" width={3024 * 0.14} height={4032 * 0.14} style={{ borderRadius: '5%' }} loading='lazy' />
+          <Image src={pic} alt="Kyoto Photo" width={960 * 0.45} height={1280 * 0.45} style={{ borderRadius: '5%' }} loading='lazy' />
         </div>
       </div>
     </>

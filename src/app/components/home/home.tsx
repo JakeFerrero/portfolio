@@ -1,8 +1,8 @@
 'use client';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
-import headshot from '../../images/headshot.jpg';
-import selfie from '../../images/website_selfie.jpg';
+import headshot from '../../images/headshot.webp';
+import selfie from '../../images/website_selfie.webp';
 import { isScreenUnderThreshold } from '../utils/deviceDetection';
 import style from './home.module.css';
 import { useWordSwitcher } from './useWordSwitcher';
@@ -28,8 +28,8 @@ export default function Home() {
         <Image
           src={headshot}
           alt="headshot"
-          width={1490 * 0.18}
-          height={1608 * 0.18}
+          width={1280 * 0.25}
+          height={1280 * 0.25}
           style={{ borderRadius: '50%' }}
           priority
           loading="eager"
@@ -40,8 +40,8 @@ export default function Home() {
           <Image
             src={selfie}
             alt="selfie"
-            width={436}
-            height={616}
+            width={1920 * .25}
+            height={2400 * .25}
             style={{ borderRadius: '5%' }}
             priority
             loading="eager"

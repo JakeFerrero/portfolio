@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import { useEffect } from 'react';
-import pic from '../../images/tokyo_temple_selfie.png';
+import pic from '../../images/tokyo_temple_selfie.webp';
 import style from './contact.module.css';
 
 export default function Contact() {
@@ -86,9 +86,9 @@ export default function Contact() {
         <Image
           id={style.contactPic}
           src={pic}
-          alt="contact-pic"
-          width={3024 * 0.14}
-          height={3780 * 0.14}
+          alt="Contact Picture"
+          width={960 * 0.45}
+          height={1280 * 0.45}
           style={{ borderRadius: '5%' }}
           loading='lazy'
         />
